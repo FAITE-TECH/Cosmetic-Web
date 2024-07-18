@@ -42,7 +42,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
         .btn-buy-now {
             display: inline-block;
             padding: 8px 16px;
-            background-color: #27cb5b; 
+            background-color: #84c32f; 
             color: #ffffff;
             text-decoration: none;
             border-radius: 4px;

@@ -88,7 +88,7 @@ if (mysqli_num_rows($result) > 0) {
             width: 100%;
             padding: 10px;
             border: none;
-            background-color: #27cb5b;
+            background-color: #84c32f;
             color: white;
             font-size: 16px;
             border-radius: 4px;
@@ -96,7 +96,7 @@ if (mysqli_num_rows($result) > 0) {
         }
 
         .form-group button:hover {
-            background-color: #45a049;
+            background-color: #84c32f;
         }
 
         @media (max-width: 600px) {

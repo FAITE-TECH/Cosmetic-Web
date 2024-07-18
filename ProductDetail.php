@@ -53,7 +53,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
 
         .btn {
             padding: 10px 20px;
-            background-color: #27cb5b;
+            background-color: #84c32f;
             color: white;
             border: none;
             cursor: pointer;

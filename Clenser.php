@@ -43,7 +43,7 @@
         }
 
         table button {
-            background-color: #27cb5b;
+            background-color: #84c32f;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -52,7 +52,7 @@
         }
 
         table button:hover {
-            background-color: #45a049;
+            background-color: #84c32f;
         }
 
         #ftr {
