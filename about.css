@@ -51,7 +51,7 @@ nav ul li a {
 .header-buttons .btn {
     text-decoration: none;
     padding: 10px 20px;
-    background-color:#27cb5b;
+    background-color:#84c32f;
     color: #fff;
     border-radius: 5px;
     font-family: 'Helvetica Neue', sans-serif;
@@ -72,7 +72,7 @@ nav ul li a {
 .about-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #27cb5b;
+    color: #84c32f;
     font-family: 'Georgia', serif;
 }
 
@@ -88,7 +88,7 @@ nav ul li a {
 
 .about-text h3 {
     font-size: 28px;
-    color: #27cb5b;
+    color: #84c32f;
     margin-bottom: 10px;
     font-family: 'Georgia', serif;
 }
@@ -101,7 +101,7 @@ nav ul li a {
 
 .read-more {
     text-decoration: none;
-    color: #27cb5b;
+    color: #84c32f;
     font-size: 16px;
     font-family: 'Helvetica Neue', sans-serif;
 }
@@ -123,7 +123,7 @@ nav ul li a {
 .services-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #27cb5b;
+    color: #84c32f;
     font-family: 'Georgia', serif;
 }
 
@@ -145,7 +145,7 @@ nav ul li a {
     display: block;
     width: 50px;
     height: 50px;
-    background-color: #27cb5b;
+    background-color: #84c32f;
     border-radius: 50%;
     margin-bottom: 10px;
 }
@@ -167,7 +167,7 @@ nav ul li a {
 
 .additional-text h3 {
     font-size: 28px;
-    color: #27cb5b;
+    color: #84c32f;
     margin-bottom: 10px;
     font-family: 'Georgia', serif;
 }

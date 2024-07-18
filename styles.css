@@ -1,9 +1,9 @@
-/* Base styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
+    background-color: #e0f2e9;
 }
 
 .container {
@@ -74,6 +74,7 @@ nav ul li a {
 .banner-content {
     flex: 1;
     padding-right: 20px;
+    font-family: 'Lora', serif;
 }
 
 .banner-content h2 {
@@ -155,7 +156,7 @@ nav ul li a {
 .category-item h3 {
     margin: 10px 0 5px;
     font-size: 1em;
-    color:#84c32f;
+    color: #84c32f;
 }
 
 .featured-content {
@@ -163,6 +164,7 @@ nav ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Lora', serif;
 }
 
 .featured-content .container {
@@ -201,7 +203,7 @@ nav ul li a {
 
 .product-grid {
     padding: 50px 0;
-    background-color: #fff;
+    background-color: #e0f2e9;
 }
 
 .product-item-grid {

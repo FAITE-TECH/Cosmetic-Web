@@ -1,6 +1,7 @@
 .container {
     width: 90%;
     margin: 0 auto;
+
 }
 
 .header-container {
@@ -63,6 +64,7 @@ nav ul li a:hover {
 
 #admin-panel {
     padding: 20px;
+    background-color: #e0f2e9;
 }
 
 #topp {
