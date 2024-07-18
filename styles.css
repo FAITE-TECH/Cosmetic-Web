@@ -9,6 +9,7 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
+   
 }
 
 .header-container {
@@ -16,10 +17,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+   
 }
 
 header {
-    background-color: #fff;
+    background-color:  #f9f9f9;
     border-bottom: 1px solid #eee;
     padding: 5px 0;
     height: 80px;
@@ -164,7 +166,7 @@ nav ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Lora', serif;
+   
 }
 
 .featured-content .container {
@@ -182,12 +184,14 @@ nav ul li a {
 .featured-text h2 {
     font-size: 2em;
     margin-bottom: 20px;
+    font-family: 'Lora', serif;
     color: #84c32f;
 }
 
 .featured-text p {
     font-size: 1.1em;
     color: #333;
+    font-family: 'Robato', serif;
 }
 
 .featured-image {
