@@ -30,7 +30,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             </nav>
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    <li>Welcome, <?php echo htmlspecialchars($username); ?>!</li>
+                    Welcome, <?php echo htmlspecialchars($username); ?>
                     <a href="logout.php" class="btn">Log Out</a>
                 <?php else: ?>
                     <a href="login.php" class="btn">Log In</a>
