@@ -22,7 +22,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             <nav>
                 <ul>
                  
-                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'Home.php'; ?>">Home</a></li>
+                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'Index.php'; ?>">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="About.php">About</a></li>
                     <li><a href="#">Contact</a></li>
