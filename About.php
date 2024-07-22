@@ -27,7 +27,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
             </ul>
         </nav>
         <div class="header-buttons">
-            <a href="#" class="btn">Cart</a>
+            <a href="cart.php" class="btn">Cart</a>
         </div>
     </div>
 </header>

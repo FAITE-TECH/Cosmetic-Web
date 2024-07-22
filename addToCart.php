@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $size = $_POST['size'];
     $image = $_POST['image'];
 
-    // Escape user input for security
+ 
     $userId = mysqli_real_escape_string($conn, $userId);
     $productId = mysqli_real_escape_string($conn, $productId);
     $productname = mysqli_real_escape_string($conn, $productname);
@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO cart (user_id, product_id, p_name, price, size, image) VALUES ('$userId', '$productId', '$productname', '$price', '$size', '$image')";
         if (mysqli_query($conn, $sql)) {
             echo 'Product added to cart successfully.';
+            header("location:cart.php");
+
         } else {
             echo 'Error: ' . mysqli_error($conn);
         }
