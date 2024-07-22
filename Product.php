@@ -1,6 +1,7 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['Usname']); 
+$isLoggedIn = isset($_SESSION['Usname']);
+$username = $isLoggedIn ? $_SESSION['Usname'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -11,14 +12,11 @@ $isLoggedIn = isset($_SESSION['Usname']);
     <title>Cleansers - Beauty Skin Care</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-
-        
         .cleansers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
-           
         }
 
         .cleanser-card {
@@ -77,22 +75,27 @@ $isLoggedIn = isset($_SESSION['Usname']);
             <nav>
                 <ul>
                     <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
-                    <li><a href="Product.php">Products</a></li>
+                    <li><a href="product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
-              
+                <?php if ($isLoggedIn): ?>
+                    <li>Welcome, <?php echo htmlspecialchars($username); ?>!</li>
+                    <a href="logout.php" class="btn">Log Out</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn">Log In</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
 
     <section class="cleansers-page">
         <div class="container">
-            <h2 class="section-title">Shop Cleansers</h2>
+            <h2 class="section-title">Shop Products</h2>
             <div class="cleansers-grid">
-            <?php
+                <?php
                 include 'connect.php';
 
                 $sql = "SELECT * FROM clenser";
