@@ -11,7 +11,9 @@ if (isset($_POST['signin'])) {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
         $_SESSION['Usname'] = $username;
+        $_SESSION['customerID'] = $row['CID']; 
         header("location:CusHome.php");
         exit();
     } else {
@@ -21,6 +23,7 @@ if (isset($_POST['signin'])) {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

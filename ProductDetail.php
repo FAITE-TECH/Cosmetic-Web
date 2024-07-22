@@ -1,6 +1,8 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['Usname']); 
+$isLoggedIn = isset($_SESSION['Usname']);
+$username = $isLoggedIn ? $_SESSION['Usname'] : '';
+$userId = $isLoggedIn ? $_SESSION['customerID'] : null; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +100,12 @@ $isLoggedIn = isset($_SESSION['Usname']);
                 </ul>
             </nav>
             <div class="header-buttons">
-          
+                <?php if ($isLoggedIn): ?>
+                    <li>Welcome, <?php echo htmlspecialchars($username); ?>!</li>
+                    <a href="logout.php" class="btn">Log Out</a>
+                <?php else: ?>
+                    <a href="login.php" class="btn">Log In</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -121,7 +128,15 @@ $isLoggedIn = isset($_SESSION['Usname']);
                 echo '<h1>' . $row['Clenser_name'] . '</h1>';
                 echo '<p><strong>Price:</strong> Rs. ' . $row['Clenser_price'] . '</p>';
                 echo '<p><strong>Size:</strong> ' . $row['Clenser_size'] . '</p>';
-                echo '<button class="btn">Add to Cart</button>';
+                echo '<form action="addToCart.php" method="POST">';
+                echo '<input type="hidden" name="product_id" value="' . $row['Cl_ID'] . '">';
+                echo '<input type="hidden" name="user_id" value="' . $userId . '">';
+                echo '<input type="hidden" name="p_name" value="' . $row['Clenser_name'] . '">';
+                echo '<input type="hidden" name="price" value="' . $row['Clenser_price'] . '">';
+                echo '<input type="hidden" name="size" value="' . $row['Clenser_size'] . '">';
+                echo '<input type="hidden" name="image" value="' . $row['image'] . '">';
+                echo '<button type="submit" class="btn">Add to Cart</button>';
+                echo '</form>';
                 echo '<button class="btn">Buy Now</button>';
                 echo '</div>';
             } else {
