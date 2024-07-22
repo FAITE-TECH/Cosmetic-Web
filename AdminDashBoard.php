@@ -17,7 +17,7 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="Index.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="About.php">About</a></li>
                     <li><a href="#">Contact</a></li>

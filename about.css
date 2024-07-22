@@ -1,5 +1,21 @@
+@font-face {
+    font-family: 'Verlag';
+    src: url('path/to/Verlag-Regular.woff2') format('woff2'),
+         url('path/to/Verlag-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('path/to/Verlag-Bold.woff2') format('woff2'),
+         url('path/to/Verlag-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
     font-size: 16px;
     margin: 0;
     padding: 0;
@@ -22,11 +38,11 @@ header {
     background-color:  #a7d7c5;
     border-bottom: 1px solid #eee;
     padding: 5px 0; 
-    height: 60px; 
+    height: 100px; 
 }
 
 .logo img {
-    height: 80px; 
+    height: 100px; 
     width: auto; 
 }
 
@@ -44,7 +60,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #333;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
     font-size: 16px;
 }
 
@@ -96,14 +112,14 @@ nav ul li a {
 .about-text p {
     font-size: 14px; 
     margin-bottom: 20px;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .read-more {
     text-decoration: none;
     color: #84c32f;
     font-size: 16px;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .about-image img {
@@ -124,7 +140,7 @@ nav ul li a {
     font-size: 36px;
     margin-bottom: 20px;
     color: #84c32f;
-    font-family: 'Georgia', serif;
+    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .services-content {
@@ -137,7 +153,7 @@ nav ul li a {
     max-width: 300px;
     margin: 10px;
     text-align: left;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
     font-size: 16px;
 }
 
@@ -169,12 +185,12 @@ nav ul li a {
     font-size: 28px;
     color: #84c32f;
     margin-bottom: 10px;
-    font-family: 'Georgia', serif;
+    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .additional-text p {
     font-size: 14px; 
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .additional-image img {

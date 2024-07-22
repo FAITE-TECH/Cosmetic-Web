@@ -11,6 +11,8 @@ $isLoggedIn = isset($_SESSION['Usname']);
     <title>Cleansers - Beauty Skin Care</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+
+        
         .cleansers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -74,7 +76,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
             </div>
             <nav>
                 <ul>
-                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'Index.php'; ?>">Home</a></li>
+                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="About.php">About</a></li>
                     <li><a href="#">Contact</a></li>

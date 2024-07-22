@@ -1,5 +1,21 @@
+@font-face {
+    font-family: 'Verlag';
+    src: url('path/to/Verlag-Regular.woff2') format('woff2'),
+         url('path/to/Verlag-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Verlag';
+    src: url('path/to/Verlag-Bold.woff2') format('woff2'),
+         url('path/to/Verlag-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Verlag', Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -9,7 +25,6 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
-   
 }
 
 .header-container {
@@ -17,18 +32,17 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-   
 }
 
 header {
     background-color: #a7d7c5;
     border-bottom: 1px solid #eee;
     padding: 5px 0;
-    height: 80px;
+    height: 100px;
 }
 
 .logo img {
-    height: 80px;
+    height: 100px;
     width: auto;
 }
 
@@ -76,7 +90,7 @@ nav ul li a {
 .banner-content {
     flex: 1;
     padding-right: 20px;
-    font-family: 'Lora', serif;
+    font-family: 'Verlag', serif;
 }
 
 .banner-content h2 {
@@ -166,7 +180,6 @@ nav ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
 }
 
 .featured-content .container {
@@ -184,14 +197,14 @@ nav ul li a {
 .featured-text h2 {
     font-size: 2em;
     margin-bottom: 20px;
-    font-family: 'Lora', serif;
+    font-family: 'Verlag', serif;
     color: #84c32f;
 }
 
 .featured-text p {
     font-size: 1.1em;
     color: #333;
-    font-family: 'Robato', serif;
+    font-family: 'Verlag', serif;
 }
 
 .featured-image {
