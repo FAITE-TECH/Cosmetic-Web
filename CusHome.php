@@ -25,7 +25,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                     <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">

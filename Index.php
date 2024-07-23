@@ -18,7 +18,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
