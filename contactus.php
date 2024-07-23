@@ -22,12 +22,13 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         header {
-            background: #fff;
+            background: #a7d7c5;
             padding: 10px 0;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -38,7 +39,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         .logo img {
-            height: 50px;
+            height: 100px;
         }
 
         nav ul {
@@ -106,7 +107,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 
         #back {
             background-color: #e0f2e9;
-            height: 100vh;
+            min-height: 100vh;
             background-repeat: no-repeat;
             background-size: cover;
             display: flex;
@@ -117,7 +118,8 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         .form-container {
             background: rgba(255, 255, 255, 0.8);
             color: #333;
-            width: 50%;
+            width: 90%;
+            max-width: 600px;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -154,7 +156,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         textarea.input-field {
-            resize: vertical;
+            height: 150px;
             padding-top: 15px;
         }
 
@@ -210,10 +212,13 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         .footer-container {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .footer-section {
-            width: 24%;
+            width: 100%;
+            max-width: 24%;
+            margin-bottom: 20px;
         }
 
         .footer-section h3 {
@@ -241,6 +246,41 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 
         .footer-section a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            .header-buttons {
+                margin-top: 10px;
+            }
+
+            .contact-banner {
+                flex-direction: column;
+            }
+
+            .banner-content,
+            .banner-image {
+                width: 100%;
+            }
+
+            .form-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                width: 90%;
+                max-width: none;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -270,8 +310,6 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         </div>
     </header>
 
-    
-
     <div id="back">
         <div class="form-container">
             <form id="contact-form" action="submit_contact.php" method="post" class="contact-form">
@@ -294,7 +332,6 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         </div>
     </div>
 
-    
     <footer>
         <div class="container footer-container">
             <div class="footer-section">

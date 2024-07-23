@@ -1,10 +1,10 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['Usname']); 
+$isLoggedIn = isset($_SESSION['Usname']);
 include 'connect.php';
 
 if (!isset($_SESSION['customerID'])) {
-    header('Location: login.php'); 
+    header('Location: login.php');
     exit();
 }
 
@@ -158,7 +158,7 @@ mysqli_close($conn);
                     <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -194,6 +194,7 @@ mysqli_close($conn);
         </table>
         <div class="cart-actions">
             <button class="btn clear-cart">Clear Cart</button>
+            <button class="btn buy-cart">Buy</button>
         </div>
     </div>
 
@@ -209,7 +210,7 @@ mysqli_close($conn);
                     <li><a href="index.php">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -249,6 +250,12 @@ mysqli_close($conn);
                 }
             });
 
+            document.querySelector('.buy-cart').addEventListener('click', () => {
+                if (confirm('Are you sure you want to proceed with the purchase?')) {
+                    buyCart();
+                }
+            });
+
             function updateQuantity(button, action) {
                 const row = button.closest('tr');
                 const productId = row.getAttribute('data-id');
@@ -261,7 +268,6 @@ mysqli_close($conn);
                     quantity--;
                 }
 
-      
                 fetch('updateQuantity.php', {
                     method: 'POST',
                     headers: {
@@ -284,7 +290,6 @@ mysqli_close($conn);
                 const row = button.closest('tr');
                 const productId = row.getAttribute('data-id');
 
-                // Remove the item from the database and UI
                 fetch('removeItem.php', {
                     method: 'POST',
                     headers: {
@@ -303,7 +308,6 @@ mysqli_close($conn);
             }
 
             function clearCart() {
-                // Clear the cart in the database and UI
                 fetch('clearCart.php', {
                     method: 'POST',
                     headers: {
@@ -317,6 +321,25 @@ mysqli_close($conn);
                         cartItems.innerHTML = '';
                     } else {
                         alert('Error clearing cart.');
+                    }
+                });
+            }
+
+            function buyCart() {
+                fetch('buyCart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userId: '<?php echo $userId; ?>' }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Purchase successful!');
+                        cartItems.innerHTML = '';
+                    } else {
+                        alert('Error processing purchase.');
                     }
                 });
             }
