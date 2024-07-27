@@ -16,9 +16,9 @@
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
+                    <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact</a></li>
+                    <li><a href="contactus.php">Contact us</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
