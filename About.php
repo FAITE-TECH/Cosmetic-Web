@@ -37,7 +37,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
         <h2>About Us</h2>
         <div class="about-content">
             <div class="about-text">
-                <h3>Discover a Skinvia Flagship</h3>
+                <h3>Discover a Sulosowshadham Flagship</h3>
                 <p>Find your ideal combination of in-office treatments & skincare regimens.</p>
                 <a href="#" class="read-more">Read more&gt;&gt;</a>
             </div>
