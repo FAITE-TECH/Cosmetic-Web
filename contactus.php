@@ -304,7 +304,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                     <a href="cart.php" class="btn">Cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
                 <?php else: ?>
-                    <a href="login.php" class="btn">Log In</a>
+                    <a href="SignIn.php" class="btn">Log In</a>
                 <?php endif; ?>
             </div>
         </div>
