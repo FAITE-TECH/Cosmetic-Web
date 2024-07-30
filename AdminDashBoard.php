@@ -1,3 +1,9 @@
+<?php
+session_start();
+$isLoggedIn = isset($_SESSION['Usname']);
+$username = $isLoggedIn ? $_SESSION['Usname'] : '';
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,10 +23,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Products</a></li>
+                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
+                    <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
