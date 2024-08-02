@@ -316,7 +316,6 @@ footer {
 }
 
 /* Media Queries for Responsive Design */
-
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -346,8 +345,13 @@ footer {
         text-align: center;
     }
 
+    .banner-content {
+        order: 2; /* Move the description below the image */
+        padding: 20px;
+    }
+
     .banner-image {
-        margin-top: 20px;
+        display: none; /* Hide the image on mobile */
     }
 
     .product-slider, .category-slider, .product-item-grid {
@@ -383,8 +387,4 @@ footer {
     .footer-section {
         margin-bottom: 20px;
     }
-
-    
-
-    
 }
