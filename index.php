@@ -104,8 +104,8 @@
             <h2>Sustainable and Ethical Practices</h2>
             <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty. </p>
         </div>
-        <div class="featured-image">
-            <img src="uploads/bg1.jpg">
+        <div class="banner-image">
+            <img src="uploads/bg4.jpg">
         </div>
     </div>
 </section>
