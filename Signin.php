@@ -25,7 +25,7 @@ if (isset($_POST['signin'])) {
 ?>
 
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="signIn.css"/>

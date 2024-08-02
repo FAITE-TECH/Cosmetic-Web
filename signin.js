@@ -7,12 +7,6 @@ function checkpassword()
     var mail=document.getElementById("myEmail").value;
     var pwrds=document.getElementById("pwrd").value;
    
-    
-   
-   
-   
-    
-    
     checkme(Unamef,"Uname");
     checkme(mail,"myEmail");
     checkme(pwrds,"pwrd");

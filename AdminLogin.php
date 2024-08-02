@@ -17,7 +17,7 @@
 	<br>
 	<input type="text" id="Uname" name="Usname" class="wdth" placeholder="Enter Your User Name" required="required">
 	<br><br>
-	
+			
 	 <label for="email" class="lbl"><b>Email</b></label>
      <br>
     <input type="text" placeholder="Enter Email" name="email" class= "wdth"required>
