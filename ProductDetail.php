@@ -130,15 +130,23 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
                 echo '<h1>' . $row['Clenser_name'] . '</h1>';
                 echo '<p><strong>Price:</strong> Rs. ' . $row['Clenser_price'] . '</p>';
                 echo '<p><strong>Size:</strong> ' . $row['Clenser_size'] . '</p>';
-                echo '<form action="addToCart.php" method="POST">';
-                echo '<input type="hidden" name="product_id" value="' . $row['Cl_ID'] . '">';
-                echo '<input type="hidden" name="user_id" value="' . $userId . '">';
-                echo '<input type="hidden" name="p_name" value="' . $row['Clenser_name'] . '">';
-                echo '<input type="hidden" name="price" value="' . $row['Clenser_price'] . '">';
-                echo '<input type="hidden" name="size" value="' . $row['Clenser_size'] . '">';
-                echo '<input type="hidden" name="image" value="' . $row['image'] . '">';
-                echo '<button type="submit" class="btn">Add to Cart</button>';
-                echo '</form>';
+
+                if ($isLoggedIn) {
+           
+                    echo '<form action="addToCart.php" method="POST">';
+                    echo '<input type="hidden" name="product_id" value="' . $row['Cl_ID'] . '">';
+                    echo '<input type="hidden" name="user_id" value="' . $userId . '">';
+                    echo '<input type="hidden" name="p_name" value="' . $row['Clenser_name'] . '">';
+                    echo '<input type="hidden" name="price" value="' . $row['Clenser_price'] . '">';
+                    echo '<input type="hidden" name="size" value="' . $row['Clenser_size'] . '">';
+                    echo '<input type="hidden" name="image" value="' . $row['image'] . '">';
+                    echo '<button type="submit" class="btn">Add to Cart</button>';
+                    echo '</form>';
+                } else {
+                   
+                    echo '<a href="Signin.php" class="btn">Log in to add to cart</a>';
+                }
+
                 echo '<button class="btn">Buy Now</button>';
                 echo '</div>';
             } else {
