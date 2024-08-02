@@ -27,8 +27,15 @@ $isLoggedIn = isset($_SESSION['Usname']);
             </ul>
         </nav>
         <div class="header-buttons">
-            <a href="cart.php" class="btn">Cart</a>
-        </div>
+                <?php if ($isLoggedIn): ?>
+                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <a href="cart.php" class="btn">cart</a>
+                    <a href="logout.php" class="btn">Log Out</a>
+                    
+                <?php else: ?>
+                    <a href="Signin.php" class="btn">Log In</a>
+                <?php endif; ?>
+            </div>
     </div>
 </header>
 
