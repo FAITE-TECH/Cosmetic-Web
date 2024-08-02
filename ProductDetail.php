@@ -101,10 +101,12 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
             </nav>
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    <li>Welcome, <?php echo htmlspecialchars($username); ?>!</li>
+                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <a href="cart.php" class="btn">cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
+                    
                 <?php else: ?>
-                    <a href="login.php" class="btn">Log In</a>
+                    <a href="Signin.php" class="btn">Log In</a>
                 <?php endif; ?>
             </div>
         </div>
