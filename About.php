@@ -1,6 +1,7 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['Usname']); 
+$isLoggedIn = isset($_SESSION['Usname']);
+$username = $isLoggedIn ? $_SESSION['Usname'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
                 <a href="#" class="read-more">Read more&gt;&gt;</a>
             </div>
             <div class="about-image">
-                <img src="https://media6.ppl-media.com/mediafiles/blogs/Day_cream_24936543e9.jpg" alt="Skinvia Flagship">
+                <img src="uploads/bg4.jpg">
             </div>
         </div>
     </div>
@@ -82,7 +83,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
                 <p>Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua. Ut Enim Ad Minim Veniam, Quis Nostrud Exercitation Ullamco Laboris Nisi Ut Aliquip Ex Ea Commodo Consequat.</p>
             </div>
             <div class="additional-image">
-                <img src="https://cdn.kitsune.tools/v1/5b2761538da2c40504537661/anti-aging-creams-5bf4f8b78b39fd0001a4cd67.png" alt="Service Image">
+            <img src="uploads/bg3.jpg">
             </div>
         </div>
     </div>

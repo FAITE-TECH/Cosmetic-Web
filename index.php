@@ -36,7 +36,7 @@
                 <a href="#" class="btn">Read more</a>
             </div>
             <div class="banner-image">
-            <img src="Logo/logo.jpg">
+            <img src="uploads/bg2.jpg">
             </div>
         </div>
     </section>
@@ -105,7 +105,7 @@
             <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty. </p>
         </div>
         <div class="featured-image">
-            <img src="https://img.freepik.com/free-photo/front-view-woman-with-beauty-product-concept_23-2148734946.jpg" alt="Featured Image">
+            <img src="uploads/bg1.jpg">
         </div>
     </div>
 </section>

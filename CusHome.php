@@ -49,7 +49,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                 <a href="#" class="btn">Read more</a>
             </div>
             <div class="banner-image">
-                <img src="https://img.freepik.com/premium-photo/beautiful-woman-with-face-cream-skin-protection-skin-care-spa-young-female-holds-moisturizing-cream-smiling-natural-makeup_231834-968.jpg" alt="Beauty">
+                <img src="uploads/bg3.jpg">
             </div>
         </div>
     </section>
@@ -118,7 +118,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty. </p>
         </div>
         <div class="featured-image">
-            <img src="https://img.freepik.com/free-photo/front-view-woman-with-beauty-product-concept_23-2148734946.jpg" alt="Featured Image">
+             <img src="uploads/bg6.jpg">
         </div>
     </div>
 </section>
