@@ -1,22 +1,17 @@
 /* Font-face declaration */
-@font-face {
-    font-family: 'Verlag';
-    src: url('path/to/Verlag-Regular.woff2') format('woff2'),
-         url('path/to/Verlag-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
-    font-family: 'Verlag';
-    src: url('path/to/Verlag-Bold.woff2') format('woff2'),
-         url('path/to/Verlag-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+    font-family: "Verlag-Black";
+    src: url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.eot");
+    src: url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/26ffd45d7739310d9dd0f8bf7c513625.svg#Verlag-Black")format("svg");
 }
 
 body {
-    font-family: 'Verlag', Arial, sans-serif;
+    font-family: 'Verlag', serif;
     margin: 0;
     padding: 0;
     color: #333;
