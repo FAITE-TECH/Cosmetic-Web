@@ -1,7 +1,23 @@
 <?php
+include "connect.php";
 session_start();
 $isLoggedIn = isset($_SESSION['Usname']);
 $username = $isLoggedIn ? $_SESSION['Usname'] : '';
+
+$products_per_page = 4;
+$page_number = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$offset = ($page_number - 1) * $products_per_page;
+
+// Fetch total number of products
+$sql_total = "SELECT COUNT(*) as total FROM clenser";
+$result_total = mysqli_query($conn, $sql_total);
+$row_total = mysqli_fetch_assoc($result_total);
+$total_products = $row_total['total'];
+$total_pages = ceil($total_products / $products_per_page);
+
+// Fetch products for the current page
+$sql = "SELECT * FROM clenser LIMIT $offset, $products_per_page";
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +47,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             </nav>
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
                     <a href="cart.php" class="btn">cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
                     
@@ -50,68 +66,12 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                 <a href="#" class="btn">Read more</a>
             </div>
             <div class="banner-image">
-                <img src="uploads/bg3.jpg">
+                <img src="uploads/bg2.jpg">
             </div>
         </div>
     </section>
 
-    <section class="products">
-        <div class="container">
-            <h2 class="section-title">Shop by Hair care</h2>
-            <div class="product-slider">
-                <div class="product-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Ubtan Facial">
-                    <h3>Shampoo</h3>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Brightening Facial">
-                    <h3>Conditioners</h3>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Night Beauty">
-                    <h3>Hair Masks</h3>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Acne Mask">
-                    <h3>Serum for Hair</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="categories">
-        <div class="container">
-            <h2 class="section-title">Shop by Skin Care</h2>
-            <div class="category-slider">
-                <div class="category-item">
-                <a href="Customerclenser.php">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Cleansers">
-                    <h3>Cleansers</h3>
-                </a>
-                </div>
-                <div class="category-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Toners">
-                    <h3>Toners</h3>
-                </div>
-                <div class="category-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Serums">
-                    <h3>Serums</h3>
-                </div>
-                <div class="category-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Moisturizer">
-                    <h3>Moisturizer</h3>
-                </div>
-                <div class="category-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Acne Treatment">
-                    <h3>Acne Treatment</h3>
-                </div>
-                <div class="category-item">
-                    <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Sun Screen">
-                    <h3>Sun Screen</h3>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <section class="featured-content">
     <div class="container">
         <div class="featured-text">
@@ -119,73 +79,127 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty. </p>
         </div>
         <div class="featured-image">
-             <img src="uploads/bg6.jpg">
+             <img src="uploads/bg4.jpg">
         </div>
     </div>
 </section>
+<section class="featured-products">
+        <div class="container">
+            <h2>Experience the Power of Rabbit Oil for Healthy Hair Growth</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="uploads/bg5.jpg" alt="Product 1">
+                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                    <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
+                    <a href="CustomerClenser.php" class="link">Shop now</a>
+                </div>
+                <div class="product-card">
+                    <img src="uploads/bg5.jpg" alt="Product 2">
+                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                    <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
+                    <a href="#" class="link">Shop now</a>
+                </div>
+                <div class="product-card">
+                    <img src="uploads/bg5.jpg" alt="Product 3">
+                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                    <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
+                    <a href="#" class="link">Shop now</a>
+                </div>
+            </div>
+        </div>
+        <section class="products-footer">
+            <h3>Our Products</h3>
+            <p>Discover our range of high-quality herbal cosmetic products.</p>
+            <a href="CustomerClenser.php" class="view-all">View all</a>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="product-card">';
+                        echo '<img src="uploads/' . htmlspecialchars($row['image']) . '" alt="Product">';
+                        echo '<h3>' . htmlspecialchars($row['Clenser_name']) . '</h3>';
+                        echo '<p>' . htmlspecialchars($row['Clenser_price']) . '</p>';
+                        echo '<a href="productDetail.php?id=' . $row['Cl_ID'] . '" class="btn-buy-now">Buy Now</a>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No products found.</p>';
+                }
+                ?>
+               
+                </div>
+                
+            </div>
+            <div class="pagination">
+                <?php if ($page_number > 1): ?>
+                    <a href="?page=<?php echo $page_number - 1; ?>" class="btn">Previous</a>
+                <?php endif; ?>
 
-<section class="product-grid">
+                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                    <a href="?page=<?php echo $i; ?>" class="btn <?php if ($i == $page_number) echo 'active'; ?>"><?php echo $i; ?></a>
+                <?php endfor; ?>
+
+                <?php if ($page_number < $total_pages): ?>
+                    <a href="?page=<?php echo $page_number + 1; ?>" class="btn">Next</a>
+                <?php endif; ?>
+            </div>
+        </section>
+    </section>
+
+    <section class="exclusive-offers">
     <div class="container">
-        <div class="product-item-grid">
-            <div class="product-item">
-                <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Product">
-                <h3>Lipsticks</h3>
-                <p>03/12/12</p>
-                <a href="#" class="btn-read-more">Read More</a>
-            </div>
-            <div class="product-item">
-                <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Product">
-                <h3>Eye Shadows</h3>
-                <p>03/12/12</p>
-                <a href="#" class="btn-read-more">Read More</a>
-            </div>
-            <div class="product-item">
-                <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Product">
-                <h3>Foundations</h3>
-                <p>03/12/12</p>
-                <a href="#" class="btn-read-more">Read More</a>
-            </div>
-            <div class="product-item">
-                <img src="https://www.rollingstone.com/wp-content/uploads/2022/11/creme-de-la-mer-sale.png" alt="Product">
-                <h3>Lipsticks</h3>
-                <p>03/12/12</p>
-                <a href="#" class="btn-read-more">Read More</a>
-            </div>
+        <h2>Get Your Exclusive Offers and Updates</h2>
+        <p>Sign up for our newsletter to receive exclusive offers and updates.</p>
+        <div class="buttons">
+            <a href="contactus.php" class="btn btn-contact">Contact us</a>
+            <a href="#" class="btn btn-learn-more">Learn more</a>
         </div>
     </div>
 </section>
 
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Skinvia is your go-to source for premium skin care products and treatments.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
-                    <li><a href="Product.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: info@skinvias.com</p>
-                <p>Phone: +94 76 5644323</p>
-            </div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-section logo-section">
+            <img src="Logo/logo.png" alt="Sulos Owshadham Herbal Health Care Logo">
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>About us</h3>
+            <ul>
+                <li><a href="Product.php">Products</a></li>
+                <li><a href="contactus.php">Contact us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Terms of use</h3>
+            <ul>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Customer service</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section subscribe-section">
+            <h3>Subscribe</h3>
+            <p>Join our mailing to receive updates and offers</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
    
 </body>
 </html>

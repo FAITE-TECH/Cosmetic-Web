@@ -21,56 +21,103 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             background-color: #e0f2e9;
         }
 
-        header {
-            background: #a7d7c5;
-            padding: 10px 0;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
 
-        .logo img {
-            height: 100px;
-        }
+header {
+    background-color: #1d036b;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+    height: auto;
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
+.logo img {
+    height: 80px;
+    width: auto;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
+nav ul li a {
+    text-decoration: none;
+    color: #fdfdfd;
+    font-size: 16px;
+    text-align: left;
+}
 
-        .header-buttons .btn {
-            background-color: #84c32f;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
 
-        .header-buttons .btn:hover {
-            background-color: #6ab83f;
-        }
+
+.header-buttons .btn {
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #84c32f;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.welcome-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff; /* White color */
+    margin-right: 15px;
+    padding: 5px 10px;
+    background-color: #240975; /* Dark background to stand out */
+    border-radius: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 60px; /* Adjust logo size for smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .header-buttons .btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
 
         .contact-banner {
             background: #e0f2e9;
@@ -204,84 +251,133 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         footer {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-        }
+    background-color: #002b5c;
+    color: white;
+    padding: 40px 0;
+    text-align: left;
+}
 
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        .footer-section {
-            width: 100%;
-            max-width: 24%;
-            margin-bottom: 20px;
-        }
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
 
-        .footer-section h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+.logo-section {
+    flex: 0 1 150px;
+    text-align: center;
+}
 
-        .footer-section p, .footer-section ul {
-            font-size: 14px;
-        }
+.logo-section img {
+    max-width: 100%;
+    height: auto;
+}
 
-        .footer-section ul {
-            padding: 0;
-            list-style: none;
-        }
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: white;
+}
 
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
+.footer-section p,
+.footer-section ul,
+.footer-section ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+}
 
-        .footer-section a {
-            color: #fff;
-            text-decoration: none;
-        }
+.footer-section ul {
+    padding: 0;
+    margin-top: 10px;
+}
 
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
+.footer-section ul li {
+    margin-bottom: 8px;
+}
 
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9em;
+}
 
-            .header-buttons {
-                margin-top: 10px;
-            }
+.footer-section ul li a:hover {
+    color: #84c32f;
+}
 
-            .contact-banner {
-                flex-direction: column;
-            }
+.footer-section p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
 
-            .banner-content,
-            .banner-image {
-                width: 100%;
-            }
+.subscribe-section {
+    max-width: 250px;
+}
 
-            .form-container {
-                width: 100%;
-                padding: 20px;
-            }
+.subscribe-section input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
 
-            .footer-container {
-                flex-direction: column;
-                align-items: center;
-            }
+.subscribe-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #84c32f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+}
 
-            .footer-section {
-                width: 90%;
-                max-width: none;
-                margin-bottom: 10px;
-            }
-        }
+.subscribe-section button:hover {
+    background-color: #6ba829;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.social-icons a:hover {
+    background-color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
     </style>
 </head>
 <body>
@@ -300,7 +396,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             </nav>
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
                     <a href="cart.php" class="btn">Cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
                 <?php else: ?>
@@ -334,34 +430,32 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 
     <footer>
         <div class="container footer-container">
+            <div class="footer-section logo-section">
+                <img src="Logo/logo.png" alt="Footer Logo">
+            </div>
             <div class="footer-section">
                 <h3>About Us</h3>
-                <p>Skinvia is your go-to source for premium skin care products and treatments.</p>
+                <p>We are committed to providing high-quality herbal beauty products.</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
+                    <li><a href="#">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact</a></li>
+                    <li><a href="contactus.php">Contact us</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: <a href="mailto:info@skinvias.com">info@skinvias.com</a></p>
-                <p>Phone: <a href="tel:+94765644323">+94 76 564 4323</a></p>
+            <div class="footer-section subscribe-section">
+                <h3>Subscribe</h3>
+                <input type="email" placeholder="Enter your email">
+                <button>Subscribe</button>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
 </html>

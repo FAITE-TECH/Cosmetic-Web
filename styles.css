@@ -33,7 +33,7 @@ body {
 }
 
 header {
-    background-color: #a7d7c5;
+    background-color: #1d036b;
     border-bottom: 1px solid #eee;
     padding: 5px 0;
     height: auto;
@@ -56,8 +56,9 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #fdfdfd;
     font-size: 16px;
+    text-align: left;
 }
 
 .header-buttons {
@@ -67,6 +68,7 @@ nav ul li a {
     margin-top: 10px;
 }
 
+
 .header-buttons .btn {
     padding: 5px 10px;
     color: #fff;
@@ -75,6 +77,15 @@ nav ul li a {
     border-radius: 5px;
     text-decoration: none;
     font-size: 14px;
+}
+.welcome-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff; /* White color */
+    margin-right: 15px;
+    padding: 5px 10px;
+    background-color: #240975; /* Dark background to stand out */
+    border-radius: 5px;
 }
 
 /* Media Queries for Responsive Design */
@@ -130,15 +141,19 @@ nav ul li a {
     flex: 1;
     padding-right: 20px;
     font-family: 'Verlag', serif;
+    font-weight: bold; /* Ensure banner content text is bold */
 }
 
 .banner-content h2 {
-    color: #84c32f;
-    font-size: 2.5em;
+    color: #1f0682;
+    font-size: 3.0em;
+    font-weight: bold; /* Make heading bold */
 }
 
 .banner-content p {
     margin: 20px 0;
+    font-size: 1.0em;
+    font-weight: bold; /* Make paragraph text bold */
 }
 
 .banner-content .btn {
@@ -219,43 +234,37 @@ nav ul li a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.featured-content .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row-reverse; /* This will place the image on the right side */
 }
 
 .featured-text {
     flex: 1;
-    max-width: 50%;
-    text-align: left;
+    padding-left: 20px; /* Add some padding to the left to create space between text and image */
 }
 
 .featured-text h2 {
     font-size: 2em;
     margin-bottom: 20px;
     font-family: 'Verlag', serif;
-    color: #84c32f;
+    color: #240975;
 }
 
 .featured-text p {
     font-size: 1.1em;
+    line-height: 1.6;
     color: #333;
-    font-family: 'Verlag', serif;
 }
 
 .featured-image {
     flex: 1;
-    text-align: right;
+    text-align: right; /* Ensure the image is aligned to the right */
 }
 
 .featured-image img {
-    width: 50%;
-    height: 400px;
+    max-width: 100%;
     border-radius: 10px;
 }
+
 
 .product-grid {
     padding: 50px 0;
@@ -311,26 +320,41 @@ nav ul li a {
 }
 
 footer {
-    background-color: #333;
+    background-color: #002b5c;
     color: white;
-    padding: 30px 0;
-    text-align: center;
+    padding: 40px 0;
+    text-align: left;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-section {
     flex: 1;
     margin: 10px;
+    min-width: 200px;
+}
+
+.logo-section {
+    flex: 0 1 150px;
+    text-align: center;
+}
+
+.logo-section img {
+    max-width: 100%;
+    height: auto;
 }
 
 .footer-section h3 {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: white;
 }
 
 .footer-section p,
@@ -339,73 +363,414 @@ footer {
     margin: 0;
     padding: 0;
     list-style: none;
+    color: white;
+}
+
+.footer-section ul {
+    padding: 0;
+    margin-top: 10px;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
 }
 
 .footer-section ul li a {
     text-decoration: none;
     color: white;
+    font-size: 0.9em;
 }
 
-.footer-section ul li {
-    margin-bottom: 5px;
+.footer-section ul li a:hover {
+    color: #84c32f;
 }
 
-.footer-section ul {
-    padding: 0;
+.footer-section p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
 }
+
+.subscribe-section {
+    max-width: 250px;
+}
+
+.subscribe-section input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.subscribe-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: #84c32f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.subscribe-section button:hover {
+    background-color: #6ba829;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+
+.social-icons a:hover {
+    background-color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+
 
 /* Original Media Queries Unchanged Below */
 
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .header-buttons {
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 60px; /* Adjust logo size for smaller screens */
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .header-buttons .btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+/* Banner and Featured Section Adjustments */
 @media (max-width: 768px) {
     .main-banner {
         flex-direction: column;
-    }
-
-    .banner-content, .banner-image {
-        max-width: 100%;
+        align-items: center;
         text-align: center;
     }
 
     .banner-content {
-        order: 2; /* Move the description below the image */
         padding: 20px;
+        order: 2; /* Move the banner text below the image */
     }
 
     .banner-image {
-        display: none; /* Hide the image on mobile */
+        display: none; /* Hide the image on mobile devices */
     }
 
-    .product-slider, .category-slider, .product-item-grid {
+    /* Ensure Featured Products are Centered */
+    .featured-products {
+        order: 1; /* Move the featured products section above other content */
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .product-grid {
         justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .featured-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .featured-text {
-        max-width: 100%;
-    }
-
-    .featured-image {
-        max-width: 100%;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .product-item {
-        flex: 1 1 100%;
-        margin: 10px 0;
-    }
-
-    .footer-container {
-        flex-direction: column;
         align-items: center;
     }
 
-    .footer-section {
-        margin-bottom: 20px;
+    .product-card {
+        margin: 10px auto;
+        max-width: 90%;
     }
 }
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+    .product-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .featured-text {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .banner-content h2 {
+        font-size: 1.8em;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+    }
+
+    .featured-text h2 {
+        font-size: 1.8em;
+    }
+
+    
+}
+
+.featured-products {
+    background-color: #e0f2e9;
+    font-family: 'Verlag-Black', serif;
+}
+
+.featured-products h2 {
+    font-size: 24px;
+    color: #1e3a5f;
+    margin-bottom: 30px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    max-width: 31%;
+    min-width: 280px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    color: #1e3a5f;
+    margin: 20px 0 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+.btn-buy-now {
+    background-color: #84c32f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.product-card .link {
+    color: #0077c8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.products-footer {
+    margin-top: 50px; 
+    padding-top: 50px; 
+    text-align: center;
+}
+
+.products-footer h3 {
+    font-size: 22px;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+}
+
+.products-footer p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.products-footer .view-all {
+    color: #0077c8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.swiper-slide {
+    display: flex;
+}
+.products-footer {
+    margin-top: 20px; 
+    padding-top: 20px; 
+  
+}
+
+.products-footer h3 {
+    font-size: 24px;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+}
+
+.products-footer p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.products-footer .view-all {
+    background-color: #84c32f;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.products-footer .view-all:hover {
+    background-color: #6ba829;
+}
+
+/* Swiper Container adjustments */
+.swiper-container {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #84c32f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination .btn.active {
+    background-color: #1d0a62;
+}
+
+.pagination .btn:hover {
+    background-color: #814de3;
+}
+
+.exclusive-offers {
+    background-color: #13274F;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 50px ;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.exclusive-offers h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    font-family: 'Verlag', serif;
+}
+
+.exclusive-offers p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.exclusive-offers .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.exclusive-offers .btn {
+    padding: 10px 20px;
+    color: #13274F;
+    background-color: #F4F4F4;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.exclusive-offers .btn:hover {
+    background-color: #D3D3D3;
+}
+
+.exclusive-offers .btn-contact {
+    background-color: #748BA1;
+    color: #FFFFFF;
+}
+
+.exclusive-offers .btn-learn-more {
+    background-color: #F4F4F4;
+    color: #13274F;
+}
+
+/* Add this in your styles.css */
+@media screen and (max-width: 640px) {
+    .product-card {
+        width: calc(50% - 10px); /* Two products per row */
+    }
+}
+
+
+
+
+
