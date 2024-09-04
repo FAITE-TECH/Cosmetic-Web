@@ -22,16 +22,14 @@ if (isset($_POST['username'])) {
 }
 
 if (isset($_POST['sign'])) {
-    $fnam = isset($_POST['fname']) ? $_POST['fname'] : "";
-    $lnam = isset($_POST['lname']) ? $_POST['lname'] : "";
     $unam = isset($_POST['Uname']) ? $_POST['Uname'] : "";
     $number = isset($_POST['Mnumber']) ? $_POST['Mnumber'] : "0";
     $mail = isset($_POST['myEmail']) ? $_POST['myEmail'] : "";
     $passw = isset($_POST['pwrd']) ? $_POST['pwrd'] : "";
 
-    $sql = "INSERT INTO customer (F_name, L_name, U_name, mnumber, email, password) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO customer (U_name, mnumber, email, password) VALUES ( ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $fnam, $lnam, $unam, $number, $mail, $passw);
+    $stmt->bind_param("ssss",$unam, $number, $mail, $passw);
 
     if ($stmt->execute()) {
         header("Location: signin.php");

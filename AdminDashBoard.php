@@ -53,6 +53,17 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                 </div>
 
                 <div class="food-item">
+                    <h5 class="food-title">Add Featured Images</h5>
+                    <div class="food-content">
+                        <img src="https://i5.walmartimages.com/asr/d9931209-a11f-417c-843e-348870947f5d.33e9d0ede6a641d3586ad819d485e9de.jpeg" class="ad4to" />
+                        <div class="food-actions">
+                            <input type="button" value="Add" onclick="window.location.href='uploadFeaturedImage.php'" class="btn" />
+                            <input type="button" value="Edit" onclick="window.location.href='#'" class="btn" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="food-item">
                     <h5 class="food-title">Toners</h5>
                     <div class="food-content">
                         <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-toners-1592326445.png?crop=0.498xw:0.997xh;0.384xw,0&resize=640:*" class="ad4to" />

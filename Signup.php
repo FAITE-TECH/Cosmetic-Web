@@ -11,10 +11,6 @@
 <div id="back" align="center">
     <form id="frm" action="configreg.php" method="post" class="reg">
         <h3 id="top">Owshadham Registration</h3>
-        <label class="lbl"><b>First Name</b></label><br>
-        <input type="text" id="fname" name="fname" class="wdth" placeholder="Enter Your First Name" required="required"><br><br>
-        <label class="lbl"><b>Last Name</b></label><br>
-        <input type="text" id="lname" name="lname" class="wdth" placeholder="Enter Your Last Name" required="required"><br><br>
         <label class="lbl"><b>User Name</b></label><br>
         <input type="text" id="Uname" name="Uname" class="wdth" placeholder="Enter Your User Name" required="required"><br><br>
         <label class="lbl"><b>Mobile Number</b></label><br>

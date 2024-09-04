@@ -12,6 +12,12 @@ $row_total = mysqli_fetch_assoc($result_total);
 $total_products = $row_total['total'];
 $total_pages = ceil($total_products / $products_per_page);
 
+// Fetch featured image from database
+$sql_featured = "SELECT image_path FROM featured_images WHERE id = 1"; // assuming 1 is the ID for featured image
+$result_featured = mysqli_query($conn, $sql_featured);
+$row_featured = mysqli_fetch_assoc($result_featured);
+$featured_image = $row_featured['image_path'];
+
 // Fetch products for the current page
 $sql = "SELECT * FROM clenser LIMIT $offset, $products_per_page";
 $result = mysqli_query($conn, $sql);
@@ -39,6 +45,7 @@ $result = mysqli_query($conn, $sql);
                     <li><a href="#">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
+                    <li><a href="contactus.php">Contact Us</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
@@ -53,7 +60,8 @@ $result = mysqli_query($conn, $sql);
             <div class="banner-content">
                 <h2>Discover the Power of Herbal Beauty with Sulos Owshadham</h2>
                 <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs.</p>
-                <a href="#" class="btn">Read more</a>
+                <a href="Signup.php" class="btn">Sign Up</a>
+                <a href="About.php" class="">Learn More</a>
             </div>
             <div class="banner-image">
                 <img src="uploads/bg2.jpg" alt="Banner Image">
@@ -63,43 +71,40 @@ $result = mysqli_query($conn, $sql);
 
     <section class="featured-content">
         <div class="container">
-            <div class="featured-text">
-                <h2>Sustainable and Ethical Practices</h2>
-                <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty.</p>
-            </div>
             <div class="featured-image">
-                <img src="uploads/bg4.jpg" alt="Featured Image">
+                <img src="uploads/<?php echo htmlspecialchars($featured_image); ?>" alt="Featured Image">
             </div>
         </div>
     </section>
 
     <section class="featured-products">
-        <div class="container">
+    <div class="container">
+    <div class="heading-container">
             <h2>Experience the Power of Rabbit Oil for Healthy Hair Growth</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 1">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
-                    <a href="CustomerClenser.php" class="link">Shop now</a>
-                </div>
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 2">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
-                    <a href="#" class="link">Shop now</a>
-                </div>
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 3">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
-                    <a href="#" class="link">Shop now</a>
-                </div>
+            <p>Our Rabbit Oil is formulated with 100% natural ingredients, promoting hair growth and preventing hair fall. Discover the secret to luscious, healthy hair today.</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 1">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
+                <a href="CustomerClenser.php" class="link">Shop now</a>
+            </div>
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 2">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
+                <a href="#" class="link">Shop now</a>
+            </div>
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 3">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
+                <a href="#" class="link">Shop now</a>
             </div>
         </div>
-
-
-        <section class="products-footer">
+    </div>
+    <section class="products-footer">
             <h3>Our Products</h3>
             <p>Discover our range of high-quality herbal cosmetic products.</p>
             <a href="CustomerClenser.php" class="view-all">View all</a>
@@ -138,7 +143,8 @@ $result = mysqli_query($conn, $sql);
                 <?php endif; ?>
             </div>
         </section>
-    </section>
+</section>
+
 </div>
 
 <section class="exclusive-offers">

@@ -15,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #e0f2e9;
+    background-color: #255269;
 }
 
 .container {
@@ -145,7 +145,7 @@ nav ul li a {
 }
 
 .banner-content h2 {
-    color: #1f0682;
+    color: #FFD700;
     font-size: 3.0em;
     font-weight: bold; /* Make heading bold */
 }
@@ -153,6 +153,7 @@ nav ul li a {
 .banner-content p {
     margin: 20px 0;
     font-size: 1.0em;
+    color: #FFF;
     font-weight: bold; /* Make paragraph text bold */
 }
 
@@ -235,6 +236,13 @@ nav ul li a {
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse; /* This will place the image on the right side */
+    text-align: left;
+}
+
+.featured-products .heading-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px; /* Adjust spacing as needed */
 }
 
 .featured-text {
@@ -242,22 +250,23 @@ nav ul li a {
     padding-left: 20px; /* Add some padding to the left to create space between text and image */
 }
 
-.featured-text h2 {
+.featured-products h2 {
+    flex: 1;
+    margin-right: 20px; /* Adjust spacing between the heading and the paragraph */
+    color: #FFD700;
     font-size: 2em;
-    margin-bottom: 20px;
-    font-family: 'Verlag', serif;
-    color: #240975;
 }
 
-.featured-text p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #333;
+.featured-products p {
+    flex: 2;
+    margin: 0; /* Remove default margin if necessary */
+    font-size: 1em;
+    color: #FFF;
 }
 
 .featured-image {
     flex: 1;
-    text-align: right; /* Ensure the image is aligned to the right */
+    text-align:justify; /* Ensure the image is aligned to the right */
 }
 
 .featured-image img {
@@ -265,10 +274,22 @@ nav ul li a {
     border-radius: 10px;
 }
 
+.featured-products p {
+    margin-bottom: 10px; /* Adjust as needed */
+    font-weight: bold; /* Optional styling */
+    color: #fff; /* Example color */
+}
+
+.featured-products h2 {
+    margin-top: 0; /* Ensure no gap between the paragraph and heading */
+    color: #FFD700; /* Example color */
+    font-size: 2em;
+}
+
 
 .product-grid {
     padding: 50px 0;
-    background-color: #e0f2e9;
+    background-color: #255269;
 }
 
 .product-item-grid {
@@ -282,7 +303,7 @@ nav ul li a {
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #255269;
     border-radius: 10px;
     flex: 1 1 calc(20% - 20px);
 }
@@ -551,13 +572,13 @@ footer {
 }
 
 .featured-products {
-    background-color: #e0f2e9;
+    background-color: #255269;
     font-family: 'Verlag-Black', serif;
 }
 
 .featured-products h2 {
     font-size: 24px;
-    color: #1e3a5f;
+    color: #FFD700;
     margin-bottom: 30px;
 }
 
@@ -657,13 +678,13 @@ footer {
 
 .products-footer h3 {
     font-size: 24px;
-    color: #1e3a5f;
+    color: #FFD700;
     margin-bottom: 10px;
 }
 
 .products-footer p {
     font-size: 16px;
-    color: #666;
+    color: #fff;
     margin-bottom: 20px;
 }
 

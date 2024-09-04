@@ -15,6 +15,13 @@ $row_total = mysqli_fetch_assoc($result_total);
 $total_products = $row_total['total'];
 $total_pages = ceil($total_products / $products_per_page);
 
+// Fetch featured image from database
+$sql_featured = "SELECT image_path FROM featured_images WHERE id = 1"; // assuming 1 is the ID for featured image
+$result_featured = mysqli_query($conn, $sql_featured);
+$row_featured = mysqli_fetch_assoc($result_featured);
+$featured_image = $row_featured['image_path'];
+
+
 // Fetch products for the current page
 $sql = "SELECT * FROM clenser LIMIT $offset, $products_per_page";
 $result = mysqli_query($conn, $sql);
@@ -63,7 +70,7 @@ $result = mysqli_query($conn, $sql);
             <div class="banner-content">
                 <h2>Care For Your Skin, Care For Your Beauty</h2>
                 <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs. </p>
-                <a href="#" class="btn">Read more</a>
+                <a href="About.php" class="">Learn more</a>
             </div>
             <div class="banner-image">
                 <img src="uploads/bg2.jpg">
@@ -73,16 +80,13 @@ $result = mysqli_query($conn, $sql);
 
    
     <section class="featured-content">
-    <div class="container">
-        <div class="featured-text">
-            <h2>Sustainable and Ethical Practices</h2>
-            <p>Sulosowshadham is deeply committed to sustainability. The brand emphasizes eco-friendly packaging, cruelty-free testing, and ethical sourcing of ingredients. By prioritizing these practices, Sulosowshadham aims to reduce its environmental footprint and promote a more responsible approach to beauty. </p>
+        <div class="container">
+            <div class="featured-image">
+                <img src="uploads/<?php echo htmlspecialchars($featured_image); ?>" alt="Featured Image">
+            </div>
         </div>
-        <div class="featured-image">
-             <img src="uploads/bg4.jpg">
-        </div>
-    </div>
-</section>
+    </section>
+    
 <section class="featured-products">
         <div class="container">
             <h2>Experience the Power of Rabbit Oil for Healthy Hair Growth</h2>

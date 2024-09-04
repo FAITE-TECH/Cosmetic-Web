@@ -53,18 +53,27 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
             margin: 10px 0;
         }
 
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
         .btn {
             padding: 10px 20px;
             background-color: #84c32f;
             color: white;
             border: none;
             cursor: pointer;
-            margin-top: 10px;
             border-radius: 4px;
-            gap: 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
         }
-        .btn + .btn {
-            margin-left: 20px; 
+
+        .btn:hover {
+            background-color: #6dbd1f;
         }
 
         @media (max-width: 768px) {
@@ -81,6 +90,11 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
 
             .product-details {
                 padding: 10px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -102,9 +116,8 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
                     Welcome, <?php echo htmlspecialchars($username); ?>
-                    <a href="cart.php" class="btn">cart</a>
+                    <a href="cart.php" class="btn">Cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
-                    
                 <?php else: ?>
                     <a href="Signin.php" class="btn">Log In</a>
                 <?php endif; ?>
@@ -131,8 +144,8 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
                 echo '<p><strong>Price:</strong> Rs. ' . $row['Clenser_price'] . '</p>';
                 echo '<p><strong>Size:</strong> ' . $row['Clenser_size'] . '</p>';
 
+                echo '<div class="button-container">';
                 if ($isLoggedIn) {
-           
                     echo '<form action="addToCart.php" method="POST">';
                     echo '<input type="hidden" name="product_id" value="' . $row['Cl_ID'] . '">';
                     echo '<input type="hidden" name="user_id" value="' . $userId . '">';
@@ -143,11 +156,12 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
                     echo '<button type="submit" class="btn">Add to Cart</button>';
                     echo '</form>';
                 } else {
-                   
                     echo '<a href="Signin.php" class="btn">Log in to add to cart</a>';
                 }
 
-                echo '<button class="btn">Buy Now</button>';
+                echo '<a href="buyNow.php?id=' . $row['Cl_ID'] . '" class="btn">Buy Now</a>';
+                echo '</div>';
+
                 echo '</div>';
             } else {
                 echo '<p>Product not found.</p>';
@@ -193,3 +207,4 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
     </footer>
 </body>
 </html>
+
