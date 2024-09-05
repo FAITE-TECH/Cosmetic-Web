@@ -17,11 +17,13 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
             display: flex;
             flex-wrap: wrap;
             padding: 20px;
-            margin: 20px 0;
+            margin: 30px ;
             background-color: #fff;
             border: 1px solid #e0e0e0;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             border-radius: 8px;
+            justify-content: center;
+           
         }
 
         .product-image {

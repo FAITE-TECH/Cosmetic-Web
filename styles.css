@@ -301,8 +301,21 @@ nav ul li a {
 
 
 .product-grid {
-    padding: 50px 0;
-    background-color: #255269;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Adjust spacing between products as needed */
+}
+
+.product-card {
+    flex: 1 1 calc(25% - 16px); /* Adjust the width based on the number of columns */
+    box-sizing: border-box;
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    .product-card {
+        flex: 1 1 calc(50% - 16px); /* Two products per row */
+    }
 }
 
 .product-item-grid {
@@ -604,48 +617,100 @@ footer {
     margin-bottom: 30px;
 }
 
+
+/* Product Grid Styling */
 .product-grid {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    
 }
 
+/* Product Card Styling */
 .product-card {
+    flex: 1 1 calc(25% - 20px); /* Each product takes 25% of the width minus the gap */
     background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
     text-align: center;
-    flex: 1;
-    max-width: 31%;
-    min-width: 280px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
 }
 
 .product-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    object-fit: cover;
 }
 
 .product-card h3 {
-    font-size: 18px;
-    color: #1e3a5f;
-    margin: 20px 0 10px;
+    font-size: 1.2rem;
+    margin: 10px 0;
 }
 
 .product-card p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 15px;
 }
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .product-card {
+        flex: 1 1 calc(33.33% - 20px); /* 3 products per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        flex: 1 1 calc(50% - 20px); /* 2 products per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        flex: 1 1 calc(100% - 20px); /* 1 product per row on mobile */
+    }
+}
+
+/* General Styling Improvements */
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+
 .btn-buy-now {
     background-color: #84c32f;
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease;
 }
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+    .btn-buy-now {
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for better readability */
+        width: 100%; /* Make the button take full width on mobile */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-buy-now {
+        padding: 6px 12px; /* Further adjust padding for very small screens */
+        font-size: 12px; /* Reduce font size */
+    }
+}
+
 
 .product-card .link {
     color: #0077c8;
@@ -812,6 +877,8 @@ footer {
         width: calc(50% - 10px); /* Two products per row */
     }
 }
+
+
 
 
 
