@@ -41,6 +41,12 @@ header {
     width: auto;
 }
 
+nav {
+    flex: 1; /* Allow nav to take up remaining space */
+    display: flex;
+    justify-content: flex-start; /* Align navigation links to the left */
+}
+
 nav ul {
     list-style: none;
     padding: 0;

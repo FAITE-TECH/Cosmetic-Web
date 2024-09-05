@@ -10,6 +10,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
     <link rel="stylesheet" type="text/css" href="adm.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Admin</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -58,7 +59,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                         <img src="https://i5.walmartimages.com/asr/d9931209-a11f-417c-843e-348870947f5d.33e9d0ede6a641d3586ad819d485e9de.jpeg" class="ad4to" />
                         <div class="food-actions">
                             <input type="button" value="Add" onclick="window.location.href='uploadFeaturedImage.php'" class="btn" />
-                            <input type="button" value="Edit" onclick="window.location.href='#'" class="btn" />
+                            <input type="button" value="Edit" onclick="window.location.href='FeaturedImages.php'" class="btn" />
                         </div>
                     </div>
                 </div>

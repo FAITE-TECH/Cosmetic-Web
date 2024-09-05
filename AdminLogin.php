@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="adminLogin.js" type="text/javascript"></script>
 <title>sign in</title>
+<link rel="icon" href="Logo/logo.png" type="image/x-icon">
 </head>
 	
 <body>

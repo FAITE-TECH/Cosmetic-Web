@@ -10,6 +10,7 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <style>
         .product-container {

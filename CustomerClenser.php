@@ -9,6 +9,7 @@ $isLoggedIn = isset($_SESSION['Usname']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cleansers - Beauty Skin Care</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <style>
 

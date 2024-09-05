@@ -32,20 +32,21 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Skin Care</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 <body>
-    <header>
+<header>
         <div class="container header-container">
             <div class="logo">
                 <img src="Logo/logo.png">
             </div>
             <nav>
                 <ul>
-                 
+
                     <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
@@ -64,6 +65,7 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </header>
+
 
     <section class="main-banner">
         <div class="container banner-container">
@@ -197,7 +199,6 @@ $result = mysqli_query($conn, $sql);
         </section>
 </section>
 
-
 <footer>
     <div class="footer-container">
         <div class="footer-section logo-section">
@@ -231,10 +232,9 @@ $result = mysqli_query($conn, $sql);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>

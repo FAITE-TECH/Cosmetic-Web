@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="adminfood.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Clenser Admin</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" language="javascript" src="home.js"></script>
     <style>

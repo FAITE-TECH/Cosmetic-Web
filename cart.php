@@ -29,6 +29,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
+    <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <style>
         .cart-container {
@@ -231,10 +232,9 @@ mysqli_close($conn);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>
