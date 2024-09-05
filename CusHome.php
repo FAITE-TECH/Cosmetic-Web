@@ -16,10 +16,9 @@ $total_products = $row_total['total'];
 $total_pages = ceil($total_products / $products_per_page);
 
 // Fetch featured image from database
-$sql_featured = "SELECT image_path FROM featured_images WHERE id = 1"; // assuming 1 is the ID for featured image
+$sql_featured = "SELECT image_path FROM featured_images";
 $result_featured = mysqli_query($conn, $sql_featured);
-$row_featured = mysqli_fetch_assoc($result_featured);
-$featured_image = $row_featured['image_path'];
+
 
 
 // Fetch products for the current page
@@ -34,8 +33,9 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Skin Care</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://db.onlinewebfonts.com/c/26ffd45d7739310d9dd0f8bf7c513625?family=Verlag-Black" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -79,39 +79,83 @@ $result = mysqli_query($conn, $sql);
     </section>
 
    
-    <section class="featured-content">
-        <div class="container">
-            <div class="featured-image">
-                <img src="uploads/<?php echo htmlspecialchars($featured_image); ?>" alt="Featured Image">
+<section class="featured-content">
+    <div class="container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                if (mysqli_num_rows($result_featured) > 0) {
+                    while ($row_featured = mysqli_fetch_assoc($result_featured)) {
+                        echo '<div class="swiper-slide">';
+                        echo '<div class="featured-image">';
+                        echo '<img src="uploads/' . htmlspecialchars($row_featured['image_path']) . '" alt="Featured Image">';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No featured images found.</p>';
+                }
+                ?>
             </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation -->
+            
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+</script>
+
+
+
     
-<section class="featured-products">
-        <div class="container">
+    <section class="featured-products">
+    <div class="container">
+    <div class="heading-container">
             <h2>Experience the Power of Rabbit Oil for Healthy Hair Growth</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 1">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
-                    <a href="CustomerClenser.php" class="link">Shop now</a>
-                </div>
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 2">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
-                    <a href="#" class="link">Shop now</a>
-                </div>
-                <div class="product-card">
-                    <img src="uploads/bg5.jpg" alt="Product 3">
-                    <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
-                    <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
-                    <a href="#" class="link">Shop now</a>
-                </div>
+            <p>Our Rabbit Oil is formulated with 100% natural ingredients, promoting hair growth and preventing hair fall. Discover the secret to luscious, healthy hair today.</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 1">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
+                <a href="CustomerClenser.php" class="link">Shop now</a>
+            </div>
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 2">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
+                <a href="#" class="link">Shop now</a>
+            </div>
+            <div class="product-card">
+                <img src="uploads/bg5.jpg" alt="Product 3">
+                <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
+                <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
+                <a href="#" class="link">Shop now</a>
             </div>
         </div>
-        <section class="products-footer">
+    </div>
+    <section class="products-footer">
             <h3>Our Products</h3>
             <p>Discover our range of high-quality herbal cosmetic products.</p>
             <a href="CustomerClenser.php" class="view-all">View all</a>
@@ -150,17 +194,6 @@ $result = mysqli_query($conn, $sql);
                 <?php endif; ?>
             </div>
         </section>
-    </section>
-
-    <section class="exclusive-offers">
-    <div class="container">
-        <h2>Get Your Exclusive Offers and Updates</h2>
-        <p>Sign up for our newsletter to receive exclusive offers and updates.</p>
-        <div class="buttons">
-            <a href="contactus.php" class="btn btn-contact">Contact us</a>
-            <a href="#" class="btn btn-learn-more">Learn more</a>
-        </div>
-    </div>
 </section>
 
 

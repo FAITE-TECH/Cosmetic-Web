@@ -1,6 +1,9 @@
 <?php
 include "connect.php";
-// Pagination logic
+session_start();
+$isLoggedIn = isset($_SESSION['Usname']);
+$username = $isLoggedIn ? $_SESSION['Usname'] : '';
+
 $products_per_page = 4;
 $page_number = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page_number - 1) * $products_per_page;
@@ -13,10 +16,10 @@ $total_products = $row_total['total'];
 $total_pages = ceil($total_products / $products_per_page);
 
 // Fetch featured image from database
-$sql_featured = "SELECT image_path FROM featured_images WHERE id = 1"; // assuming 1 is the ID for featured image
+$sql_featured = "SELECT image_path FROM featured_images";
 $result_featured = mysqli_query($conn, $sql_featured);
-$row_featured = mysqli_fetch_assoc($result_featured);
-$featured_image = $row_featured['image_path'];
+
+
 
 // Fetch products for the current page
 $sql = "SELECT * FROM clenser LIMIT $offset, $products_per_page";
@@ -30,27 +33,34 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beauty Skin Care</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://db.onlinewebfonts.com/c/26ffd45d7739310d9dd0f8bf7c513625?family=Verlag-Black" rel="stylesheet">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 <body>
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="Logo/logo.png" alt="Logo">
+                <img src="Logo/logo.png">
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                 
+                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
                     <li><a href="Product.php">Products</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact Us</a></li>
+                    <li><a href="contactus.php">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-buttons">
-                <a href="Signup.php" class="btn">Sign Up</a>
-                <a href="Signin.php" class="btn">Login</a>
+                <?php if ($isLoggedIn): ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
+                    <a href="cart.php" class="btn">cart</a>
+                    <a href="logout.php" class="btn">Log Out</a>
+                    
+                <?php else: ?>
+                    <a href="Signin.php" class="btn">Log In</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -58,25 +68,67 @@ $result = mysqli_query($conn, $sql);
     <section class="main-banner">
         <div class="container banner-container">
             <div class="banner-content">
-                <h2>Discover the Power of Herbal Beauty with Sulos Owshadham</h2>
-                <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs.</p>
+                <h2>Care For Your Skin, Care For Your Beauty</h2>
+                <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs. </p>
                 <a href="Signup.php" class="btn">Sign Up</a>
-                <a href="About.php" class="">Learn More</a>
+                <a href="About.php" class="">Learn more</a>
             </div>
             <div class="banner-image">
-                <img src="uploads/bg2.jpg" alt="Banner Image">
+                <img src="uploads/bg2.jpg">
             </div>
         </div>
     </section>
 
-    <section class="featured-content">
-        <div class="container">
-            <div class="featured-image">
-                <img src="uploads/<?php echo htmlspecialchars($featured_image); ?>" alt="Featured Image">
+   
+<section class="featured-content">
+    <div class="container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <?php
+                if (mysqli_num_rows($result_featured) > 0) {
+                    while ($row_featured = mysqli_fetch_assoc($result_featured)) {
+                        echo '<div class="swiper-slide">';
+                        echo '<div class="featured-image">';
+                        echo '<img src="uploads/' . htmlspecialchars($row_featured['image_path']) . '" alt="Featured Image">';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<p>No featured images found.</p>';
+                }
+                ?>
             </div>
-        </div>
-    </section>
 
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation -->
+            
+        </div>
+    </div>
+</section>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
+</script>
+
+
+
+    
     <section class="featured-products">
     <div class="container">
     <div class="heading-container">
@@ -145,79 +197,47 @@ $result = mysqli_query($conn, $sql);
         </section>
 </section>
 
-</div>
 
-<section class="exclusive-offers">
-    <div class="container">
-        <h2>Get Your Exclusive Offers and Updates</h2>
-        <p>Sign up for our newsletter to receive exclusive offers and updates.</p>
-        <div class="buttons">
-            <a href="contactus.php" class="btn btn-contact">Contact us</a>
-            <a href="learn-more.html" class="btn btn-learn-more">Learn more</a>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section logo-section">
+            <img src="Logo/logo.png" alt="Sulos Owshadham Herbal Health Care Logo">
+        </div>
+        <div class="footer-section">
+            <h3>About us</h3>
+            <ul>
+                <li><a href="Product.php">Products</a></li>
+                <li><a href="contactus.php">Contact us</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Terms of use</h3>
+            <ul>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Customer service</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-section subscribe-section">
+            <h3>Subscribe</h3>
+            <p>Join our mailing to receive updates and offers</p>
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
         </div>
     </div>
-</section>
-
-
-
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-section logo-section">
-                <img src="Logo/logo.png" alt="Footer Logo">
-            </div>
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>We are committed to providing high-quality herbal beauty products.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="Product.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section subscribe-section">
-                <h3>Subscribe</h3>
-                <input type="email" placeholder="Enter your email">
-                <button>Subscribe</button>
-            </div>
+    <div class="footer-bottom">
+        <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-   var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        640: { // When the screen width is >= 640px
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        768: { // When the screen width is >= 768px
-            slidesPerView: 3,
-            spaceBetween: 30,
-        },
-        1024: { // When the screen width is >= 1024px
-            slidesPerView: 4,
-            spaceBetween: 40,
-        },
-    },
-});
-
-    </script>
-
+    </div>
+</footer>
+   
 </body>
 </html>

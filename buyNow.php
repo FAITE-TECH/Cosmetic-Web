@@ -173,15 +173,16 @@ mysqli_close($conn);
             })();
 
             document.getElementById('purchase-form').addEventListener('submit', function(event) {
-                event.preventDefault();
+    event.preventDefault();
 
-                emailjs.sendForm('service_x71pvhm', 'template_b0qx4am', this)
-                    .then(function(response) {
-                        alert('Message sent successfully!');
-                    }, function(error) {
-                        alert('Failed to send message: ' + error.text);
-                    });
-            });
+    emailjs.sendForm('service_x71pvhm', 'template_b0qx4am', this)
+        .then(function(response) {
+            // Redirect to thank_you.php on success
+            window.location.href = 'thank_you.php';
+        }, function(error) {
+            alert('Failed to send message: ' + error.text);
+        });
+});
         </script>
     </main>
 
