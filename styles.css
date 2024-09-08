@@ -142,12 +142,14 @@ nav ul li a {
     align-items: center;
     padding: 50px 0;
     justify-content: space-between;
+  
 }
 
 .banner-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
 }
 
 .banner-content {
@@ -182,6 +184,7 @@ nav ul li a {
 .banner-image {
     flex: 1;
     text-align: right;
+   
 }
 
 .banner-image img {
@@ -280,11 +283,16 @@ nav ul li a {
 .featured-image {
     flex: 1;
     text-align:justify; /* Ensure the image is aligned to the right */
+   
 }
 
 .featured-image img {
     max-width: 100%;
     border-radius: 10px;
+    border-style:solid;
+    border-width: 5px;
+    border-color: #FFD700;
+   
 }
 
 .featured-products p {
@@ -304,16 +312,31 @@ nav ul li a {
     display: flex;
     flex-wrap: wrap;
     gap: 16px; /* Adjust spacing between products as needed */
+ 
 }
 
 .product-card {
     flex: 1 1 calc(25% - 16px); /* Adjust the width based on the number of columns */
     box-sizing: border-box;
+    border-style: solid;
+    border-color: #FFD700;
+    border-width: 5px;
+ 
+}
+.card {
+    flex: 1 1 calc(25% - 16px); /* Adjust the width based on the number of columns */
+    box-sizing: border-box;
+ 
 }
 
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
     .product-card {
+        flex: 1 1 calc(50% - 16px); /* Two products per row */
+    }
+}
+@media (max-width: 768px) {
+    card{
         flex: 1 1 calc(50% - 16px); /* Two products per row */
     }
 }
@@ -339,6 +362,7 @@ nav ul li a {
     height: auto;
     border-radius: 10px;
     margin-bottom: 10px;
+   
 }
 
 .product-item h3 {
@@ -574,11 +598,20 @@ footer {
         margin: 10px auto;
         max-width: 90%;
     }
+    .card{
+        margin: 10px auto;
+        max-width: 90%;
+    }
 }
 
 /* Further adjustments for very small screens */
 @media (max-width: 480px) {
     .product-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card {
         max-width: 100%;
         margin-bottom: 20px;
     }
@@ -640,10 +673,30 @@ footer {
     
 }
 
+.card {
+    flex: 1 1 calc(25% - 20px); /* Each product takes 25% of the width minus the gap */
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    
+}
+
 .product-card img {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+ 
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+ 
 }
 
 .product-card h3 {
@@ -760,6 +813,7 @@ footer {
 .products-footer {
     margin-top: 20px; 
     padding-top: 20px; 
+   
   
 }
 
@@ -793,7 +847,10 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   
+    
 }
+
 .pagination {
     text-align: center;
     margin-top: 20px;

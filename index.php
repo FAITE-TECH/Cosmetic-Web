@@ -168,7 +168,7 @@ $result = mysqli_query($conn, $sql);
                 <?php
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="product-card">';
+                        echo '<div class="card">';
                         echo '<img src="uploads/' . htmlspecialchars($row['image']) . '" alt="Product">';
                         echo '<h3>' . htmlspecialchars($row['Clenser_name']) . '</h3>';
                         echo '<p>' . htmlspecialchars($row['Clenser_price']) . '</p>';
