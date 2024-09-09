@@ -734,6 +734,10 @@ footer {
     transform: scale(1.05);
 }
 
+.card:hover {
+    transform: scale(1.05);
+}
+
 
 
 
@@ -766,6 +770,13 @@ footer {
 
 
 .product-card .link {
+    color: #0077c8;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card .link {
     color: #0077c8;
     text-decoration: none;
     font-size: 14px;

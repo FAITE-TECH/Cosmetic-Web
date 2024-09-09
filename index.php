@@ -139,19 +139,19 @@ $result = mysqli_query($conn, $sql);
         </div>
         <div class="product-grid">
             <div class="product-card">
-                <img src="uploads/bg5.jpg" alt="Product 1">
+                <img src="uploads/productImage.jpg" alt="Product 1">
                 <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
                 <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
                 <a href="CustomerClenser.php" class="link">Shop now</a>
             </div>
             <div class="product-card">
-                <img src="uploads/bg5.jpg" alt="Product 2">
+                <img src="uploads/productImage.jpg" alt="Product 2">
                 <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
                 <p>Experience the transformative power of our Rabbit Oil, solving all your hair care concerns.</p>
                 <a href="#" class="link">Shop now</a>
             </div>
             <div class="product-card">
-                <img src="uploads/bg5.jpg" alt="Product 3">
+                <img src="uploads/productImage.jpg" alt="Product 3">
                 <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
                 <p>Our Rabbit Oil is a natural solution to revitalize dull and damaged hair, leaving it soft and manageable.</p>
                 <a href="#" class="link">Shop now</a>
