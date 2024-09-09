@@ -19,6 +19,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             gap: 20px;
             margin-top: 20px;
         }
+        
 
         .cleanser-card {
             background-color: #ffffff;
@@ -83,7 +84,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             </nav>
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
                     <a href="cart.php" class="btn">cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
                     
@@ -157,9 +158,9 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="Logo/facebook-nb.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/video-nb.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube-nb.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>
