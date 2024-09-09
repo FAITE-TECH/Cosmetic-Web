@@ -219,9 +219,9 @@ mysqli_close($conn);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="Logo/facebook-nb.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/video-nb.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube-nb.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>

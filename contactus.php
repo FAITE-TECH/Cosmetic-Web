@@ -30,7 +30,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 }
 
 header {
-    background-color: #17335c;
+    background-color: #002147;
     border-bottom: 1px solid #eee;
     padding: 5px 0;
     height: auto;
@@ -257,7 +257,7 @@ nav ul li a {
         }
 
         footer {
-    background-color: #17335c;
+    background-color: #002147;
     color: white;
     padding: 40px 0;
     text-align: left;

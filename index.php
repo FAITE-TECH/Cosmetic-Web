@@ -73,7 +73,7 @@ $result = mysqli_query($conn, $sql);
                 <h2>Care For Your Skin, Care For Your Beauty</h2>
                 <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs. </p>
                 <a href="Signup.php" class="btn">Sign Up</a>
-                <a href="About.php" class="">Learn more</a>
+                <a href="About.php" class=""  style="color: #FFD700 ;  padding-left:25px;">Learn more</a>
             </div>
             <div class="banner-image">
                 <img src="uploads/bg2.jpg">
@@ -246,9 +246,9 @@ $result = mysqli_query($conn, $sql);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="Logo/facebook-nb.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/video-nb.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube-nb.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>

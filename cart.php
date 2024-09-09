@@ -32,120 +32,249 @@ mysqli_close($conn);
     <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .cart-container {
-            max-width: 800px;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+        body, html {
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    
+}
 
-        .cart-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+body {
+    background-color: #255269;
+}
 
-        th, td {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-        }
+.reg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 220px;
+    background: rgba(153, 153, 153, 0.4); 
+    color: #f1f1f1;
+    width: 45%;
+    padding: 20px;
+    border-radius: 15px;
+}
 
-        th {
-            background-color: #f8f8f8;
-        }
+#back {
+    background-image: url("Logo/hi.png");
+    height: 100vh; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: relative;
+}
 
-        .btn {
-            padding: 5px 10px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+#top {
+    font-family: "Times New Roman", Times, serif;
+    color: #84c32f;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin for spacing */
+}
 
-        .btn:hover {
-            background-color: #2980b9;
-        }
+.cart-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
 
-        .btn.decrease, .btn.increase {
-            padding: 5px 15px;
-            font-size: 16px;
-        }
+.cart-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
 
-        .btn.remove {
-            background-color: #e74c3c;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        .btn.remove:hover {
-            background-color: #c0392b;
-        }
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
 
-        .cart-actions {
-            text-align: center;
-            margin-top: 20px;
-        }
+th {
+    background-color: #f8f8f8;
+}
 
-        .cart-actions .btn {
-            background-color: #e67e22;
-        }
+.btn {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .cart-actions .btn:hover {
-            background-color: #d35400;
-        }
+.btn:hover {
+    background-color: #2980b9;
+}
 
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+.btn.decrease, .btn.increase {
+    padding: 5px 15px;
+    font-size: 16px;
+}
 
-        .footer-section {
-            width: 23%;
-            margin-bottom: 20px;
-        }
+.btn.remove {
+    background-color: #e74c3c;
+}
 
-        .footer-section h3 {
-            margin-bottom: 10px;
-            color: white;
-        }
+.btn.remove:hover {
+    background-color: #c0392b;
+}
 
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
+.cart-actions {
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
+.cart-actions .btn {
+    background-color: #e67e22;
+}
 
-        .footer-section ul li a {
-            text-decoration: none;
-            color: white;
-        }
+.cart-actions .btn:hover {
+    background-color: #d35400;
+}
 
-        .footer-section ul li a:hover {
-            text-decoration: underline;
-        }
+/* Footer Styles */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   
+    padding: 20px;
+    color: white;
+}
 
-        @media (max-width: 768px) {
-            .footer-section {
-                width: 48%;
-            }
-        }
+.footer-section {
+    width: 23%;
+    margin-bottom: 20px;
+}
 
-        @media (max-width: 480px) {
-            .footer-section {
-                width: 100%;
-            }
-        }
+.footer-section h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for Tablets */
+/* Media Query for Tablets */
+@media (max-width: 768px) {
+    .cart-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        font-size: 14px;
+    }
+
+    .footer-section {
+        width: 48%;
+    }
+
+    .btn.decrease, .btn.increase {
+        padding: 4px 10px;
+        font-size: 14px;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    .cart-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    td {
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr {
+        margin-bottom: 10px;
+    }
+
+    td:first-child {
+        font-weight: bold;
+    }
+
+    .cart-container table thead {
+        display: none;
+    }
+
+    .cart-container table tbody tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .cart-container table tbody tr td {
+        padding-left: 0;
+    }
+
+    .btn {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+    .btn.decrease, .btn.increase {
+        padding: 3px 8px;
+        font-size: 12px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+}
+
+
+
     </style>
 </head>
 <body>
@@ -232,9 +361,9 @@ mysqli_close($conn);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><img src="Logo/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="Logo/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="Logo/youtube.png" alt="YouTube"></a>
+            <a href="#"><img src="Logo/facebook-nb.png" alt="Facebook"></a>
+            <a href="#"><img src="Logo/video-nb.png" alt="Instagram"></a>
+            <a href="#"><img src="Logo/youtube-nb.png" alt="YouTube"></a>
         </div>
     </div>
 </footer>
