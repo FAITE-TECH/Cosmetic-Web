@@ -199,6 +199,20 @@ $result = mysqli_query($conn, $sql);
         </section>
 </section>
 
+<section class="exclusive-offers">
+    <div class="container">
+        <div class="text-content">
+            <h2>Get Your Exclusive Offers and Updates</h2>
+            <p>Sign up for our newsletter to receive exclusive offers and updates.</p>
+        </div>
+        <div class="btn-group">
+            <a href="contactus.php" class="btn btn-primary">Contact us</a>
+            <a href="About.php" class="btn btn-secondary">Learn more</a>
+        </div>
+    </div>
+</section>
+
+
 <footer>
     <div class="footer-container">
         <div class="footer-section logo-section">
