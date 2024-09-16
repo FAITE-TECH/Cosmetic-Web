@@ -9,6 +9,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Contact Us - Beauty Skin Care</title>
     <style>
         body, html {
@@ -20,67 +21,6 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         body {
             background-color: #e0f2e9;
         }
-
-        .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    flex-wrap: wrap;
-}
-
-header {
-    background-color: #002147;
-    border-bottom: 1px solid #eee;
-    padding: 5px 0;
-    height: auto;
-}
-
-.logo img {
-    height: 80px;
-    width: auto;
-}
-
-nav {
-    flex: 1; /* Allow nav to take up remaining space */
-    display: flex;
-    justify-content: flex-start; /* Align navigation links to the left */
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fdfdfd;
-    font-size: 16px;
-    text-align: left;
-}
-
-.header-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-
-.header-buttons .btn {
-    padding: 5px 10px;
-    color: #fff;
-    background-color: #84c32f;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px;
-}
 .welcome-message {
     font-size: 18px;
     font-weight: bold;

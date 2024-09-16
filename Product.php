@@ -51,9 +51,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             margin-top: 10px;
         }
 
-        .container {
-            padding-bottom: 60px; 
-        }
+        
 
         @media (max-width: 768px) {
             .cleansers-grid {
