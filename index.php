@@ -70,7 +70,7 @@ $result = mysqli_query($conn, $sql);
     <section class="main-banner">
         <div class="container banner-container">
             <div class="banner-content">
-                <h2>Care For Your Skin, Care For Your Beauty</h2>
+                <h2>Discover the power of Herbal Beauty with Sulos Owshadham</h2>
                 <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs. </p>
                 <a href="Signup.php" class="btn">Sign Up</a>
                 <a href="About.php" class=""  style="color: #FFD700 ;  padding-left:25px;">Learn more</a>
@@ -100,31 +100,28 @@ $result = mysqli_query($conn, $sql);
                 }
                 ?>
             </div>
+           
 
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            
 
             <!-- Add Navigation -->
-            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </section>
 
 <script>
     var swiper = new Swiper('.swiper-container', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+        loop: false,
+        slidesPerView: 1, // Show one image at a time
+        spaceBetween: 20, // Space between images
+        
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+        
     });
 </script>
 

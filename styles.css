@@ -105,6 +105,7 @@ nav ul li a:active {
     text-decoration: none;
     font-size: 14px;
     transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for focus/move */
+    font-family: Arial;
 }
 
 .header-buttons .btn:hover {
@@ -189,8 +190,9 @@ nav ul li a:active {
 
 .banner-content h2 {
     color: #FFD700;
-    font-size: 3.0em;
+    font-size: 2.9em;
     font-weight: bold; /* Make heading bold */
+    text-align: center;
 }
 
 .banner-content p {
@@ -198,6 +200,7 @@ nav ul li a:active {
     font-size: 1.0em;
     color: #FFF;
     font-weight: bold; /* Make paragraph text bold */
+    text-align:justify;
 }
 
 .banner-content .btn {
@@ -207,6 +210,7 @@ nav ul li a:active {
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    margin-left:50px;
 }
 
 .banner-image {
@@ -274,14 +278,7 @@ nav ul li a:active {
     color: #84c32f;
 }
 
-.featured-content {
-    padding: 50px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row-reverse; /* This will place the image on the right side */
-    text-align: left;
-}
+
 
 .featured-products .heading-container {
     display: flex;
@@ -417,7 +414,6 @@ nav ul li a:active {
 .btn-read-more:hover {
     background-color: #84c32f;
 }
-
 footer {
     background-color: #002147;
     color: white;
@@ -530,7 +526,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
- 
 }
 
 .social-icons img {
@@ -545,17 +540,35 @@ footer {
     opacity: 0.7; /* Change opacity on hover */
 }
 
-
-
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-   
     border-top: 1px solid #ddd; /* Adjust as needed */
 }
 
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+        max-width: none;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+}
 
 
 /* Original Media Queries Unchanged Below */
@@ -882,13 +895,74 @@ footer {
 }
 
 /* Swiper Container adjustments */
+.featured-image {
+    max-width:1200px;
+    max-height: 450px;
+    overflow: hidden; /* Ensures content stays within the container */
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 450px; /* Limits the height */
+    object-fit: cover; /* Ensures the image fits nicely within the height */
+}
+
+.featured-content {
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse; /* Places image on the right */
+    text-align: left;
+    gap: 20px; /* Adds spacing between elements */
+}
+.container{
+    position:relative;
+}
 .swiper-container {
     margin-top: 20px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-   
-    
+}
+
+/* Custom styling for next/prev buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    color: #333; /* Dark grey arrow color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adding a stronger shadow */
+    position: absolute;
+    bottom: 20px; /* Positioned at the bottom */
+    z-index: 10;
+}
+
+.swiper-button-next {
+    right: 20px; /* Spaced to the right */
+}
+
+.swiper-button-prev {
+    left: 20px; /* Spaced to the left */
+}
+
+/* Adding hover effect for better interactivity */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #f1f1f1; /* Lighter background on hover */
+    transform: scale(1.1); /* Scale up effect on hover */
+}
+
+/* Ensure swiper buttons stay inside container */
+.swiper-container {
+    position: relative;
 }
 
 .pagination {
@@ -913,6 +987,7 @@ footer {
 .pagination .btn:hover {
     background-color: #814de3;
 }
+
 
 .exclusive-offers {
     background-color: #002147; /* Dark blue background */
