@@ -99,23 +99,25 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         #back {
-            background-color: #e0f2e9;
-            min-height: 100vh;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    background-color: #e0f2e9;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; 
+}
 
         .form-container {
-            background: rgba(255, 255, 255, 0.8);
-            color: #333;
-            width: 90%;
-            max-width: 600px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.9); 
+    color: #333;
+    width: 90%;
+    max-width: 700px; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+    margin: 40px 0;
         }
 
         .contact-form {
@@ -123,13 +125,15 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
             flex-direction: column;
         }
 
-        .contact-form h3 {
-            font-family: "Times New Roman", Times, serif;
-            color: #84c32f;
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+       /* Contact form header */
+.contact-form h3 {
+    font-family: "Times New Roman", Times, serif;
+    color: #84c32f;
+    font-size: 32px; 
+    margin-bottom: 30px; 
+    text-align: center;
+}
+
 
         .lbl {
             font-size: 16px;
@@ -154,21 +158,20 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         #btn {
-            background-color: #84c32f;
-            color: white;
-            padding: 15px;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
-
-        #btn:hover {
-            background-color: #6ab83f;
-        }
+    background-color: #84c32f;
+    color: white;
+    padding: 18px; 
+    border: none;
+    cursor: pointer;
+    border-radius: 10px; 
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+#btn:hover {
+    background-color: #6ab83f;
+}
 
         .contact-details {
             background: #e0f2e9;
