@@ -99,30 +99,23 @@ $result = mysqli_query($conn, $sql);
                 ?>
             </div>
 
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Add Navigation -->
-            
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 </section>
 
 <script>
     var swiper = new Swiper('.swiper-container', {
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
+        loop: false,
+        slidesPerView: 1, // Show one image at a time
+        spaceBetween: 20, // Space between images
+        
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
+        
     });
 </script>
 
