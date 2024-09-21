@@ -585,27 +585,51 @@ footer {
         margin-bottom: 10px;
     }
 
-    nav ul {
-        justify-content: center;
-    }
-
-    .header-buttons {
-        justify-content: center;
-    }
-
     .logo img {
         height: 60px; /* Adjust logo size for smaller screens */
     }
 
+    nav ul {
+        justify-content: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
     nav ul li a {
         font-size: 14px;
+        padding: 5px 10px;
+        display: block;
+    }
+
+    .header-buttons {
+        justify-content: center;
+        margin-top: 10px;
     }
 
     .header-buttons .btn {
         font-size: 12px;
         padding: 8px 12px;
+        margin: 5px 0;
+    }
+
+    /* Additional mobile-specific styles */
+    body {
+        padding: 0 15px; /* Ensure content is spaced within mobile viewports */
+    }
+
+    .container {
+        width: 100%; /* Ensure containers take full width on mobile */
+    }
+
+    .content {
+        padding: 10px; /* Reduce padding for content */
     }
 }
+
 
 /* Banner and Featured Section Adjustments */
 @media (max-width: 768px) {
@@ -904,7 +928,7 @@ footer {
     align-items: center;
     flex-direction: row-reverse; /* Places image on the right */
     text-align: left;
-    gap: 20px; /* Adds spacing between elements */
+    gap: 10px; /* Adds spacing between elements */
 }
 .featured-content .container{
     position:relative;
@@ -935,13 +959,7 @@ footer {
     z-index: 10;
 }
 
-.featured-content .swiper-button-next {
-    right: 0px; /* Spaced to the right */
-}
 
-.featured-content .swiper-button-prev {
-    left: 0px; /* Spaced to the left */
-}
 
 /* Adding hover effect for better interactivity */
 .featured-content .swiper-button-next:hover,
