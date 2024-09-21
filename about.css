@@ -19,7 +19,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #e0f2e9;
+    background-color: #255269; /* Updated background color */
 }
 
 .container {
@@ -40,7 +40,6 @@ header {
     background-color: #002147;
     border-bottom: 1px solid #eee;
     padding: 5px 0;
-    height: auto;
 }
 
 .logo img {
@@ -57,13 +56,14 @@ nav ul {
     align-items: center;
     flex-wrap: wrap;
 }
+
 .welcome-message {
     font-size: 18px;
     font-weight: bold;
     color: #fff; /* White color */
     margin-right: 15px;
     padding: 5px 10px;
-    background-color: #240975; /* Dark background to stand out */
+    background-color: #240975;
     border-radius: 5px;
 }
 
@@ -102,7 +102,7 @@ nav ul li a {
     }
 
     .logo img {
-        height: 60px; /* Adjust logo size for smaller screens */
+        height: 60px;
     }
 
     nav ul li a {
@@ -117,25 +117,18 @@ nav ul li a {
 
 .about-section {
     padding: 50px 0;
-}
-
-.about-section .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 }
 
 .about-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #84c32f;
+    color: #fff; /* Changed from green to white */
     font-family: 'Georgia', serif;
 }
 
 .about-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -145,22 +138,15 @@ nav ul li a {
 
 .about-text h3 {
     font-size: 28px;
-    color: #84c32f;
+    color: #fff; /* Changed from green to white */
     margin-bottom: 10px;
     font-family: 'Georgia', serif;
 }
 
 .about-text p {
-    font-size: 14px; 
+    font-size: 14px;
     margin-bottom: 20px;
-    font-family: 'Verlag', Arial, sans-serif;
-}
-
-.read-more {
-    text-decoration: none;
-    color: #84c32f;
-    font-size: 16px;
-    font-family: 'Verlag', Arial, sans-serif;
+    color:#fff;
 }
 
 .about-image img {
@@ -169,19 +155,38 @@ nav ul li a {
     margin-left: 20px;
 }
 
-.services-section {
-    padding: 50px 0;
+.read-more {
+    text-decoration: none;
+    color: #84c32f;
+    font-size: 16px;
 }
 
-.services-section .container {
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column-reverse; /* Place image first */
+        text-align: center;             /* Center align content */
+    }
+
+    .about-image img {
+        margin-left: 0;
+        margin-bottom: 20px;            /* Add margin below the image */
+        max-width: 90%;                 /* Adjust image size for smaller screens */
+    }
+
+    .about-text {
+        max-width: 100%;
+    }
+}
+
+.services-section {
+    padding: 50px 0;
     text-align: center;
 }
 
 .services-section h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #84c32f;
-    font-family: 'Verlag', Arial, sans-serif;
+    color: #fff; /* Changed from green to white */
 }
 
 .services-content {
@@ -193,34 +198,31 @@ nav ul li a {
 .service {
     max-width: 300px;
     margin: 10px;
-    text-align: center; /* Center-align text and icons */
-    font-family: 'sans-serif';
-    font-size: 16px;
+    text-align: center;
+}
+.service p{
+    color:#fff;
+    justify-content: center;
 }
 
 .service-icon {
-    display: flex;                /* Use flexbox for centering */
-    justify-content: center;      /* Horizontally center the icon */
-    align-items: center;          /* Vertically center the icon */
-    width: 70px;                  /* Adjust the width of the circle */
-    height: 70px;                 /* Adjust the height of the circle */
-    background-color: #84c32f;    /* Circle background color */
-    border-radius: 50%;           /* Make the container circular */
-    margin: 0 auto 10px auto;     /* Center the circle and add bottom margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: #84c32f;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
 }
 
 .service-icon i {
-    font-size: 30px;              /* Icon size */
-    color: white;                 /* Icon color */
-}
-
-.service p {
-    font-size: 14px;
+    font-size: 30px;
+    color: white;
 }
 
 .additional-content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     margin-top: 50px;
 }
@@ -231,14 +233,8 @@ nav ul li a {
 
 .additional-text h3 {
     font-size: 28px;
-    color: #84c32f;
+    color: #fff; /* Changed from green to white */
     margin-bottom: 10px;
-    font-family: 'Verlag', Arial, sans-serif;
-}
-
-.additional-text p {
-    font-size: 14px; 
-    font-family: 'Verlag', Arial, sans-serif;
 }
 
 .additional-image img {
@@ -246,5 +242,3 @@ nav ul li a {
     height: auto;
     margin-left: 20px;
 }
-
-
