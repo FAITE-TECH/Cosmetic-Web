@@ -36,6 +36,7 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 <body>
@@ -237,10 +238,16 @@ $result = mysqli_query($conn, $sql);
     <div class="footer-bottom">
         <p>© 2024 Sulos Owshadham Herbal Health Care. All rights reserved.</p>
         <div class="social-icons">
-            <a href="#"><img src="Logo/facebook-nb.png" alt="Facebook"></a>
-            <a href="#"><img src="Logo/video-nb.png" alt="Instagram"></a>
-            <a href="#"><img src="Logo/youtube-nb.png" alt="YouTube"></a>
-        </div>
+    <a href="https://www.facebook.com/tamilocean1" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/sulosowshadham?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="#" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
     </div>
 </footer>
    
