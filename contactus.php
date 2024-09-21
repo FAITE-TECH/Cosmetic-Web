@@ -19,7 +19,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         body {
-            background-color: #e0f2e9;
+            background-color: #255269;
         }
 .welcome-message {
     font-size: 18px;
@@ -99,7 +99,7 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
         }
 
         #back {
-    background-color: #e0f2e9;
+    background-color: #255269;
     min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
