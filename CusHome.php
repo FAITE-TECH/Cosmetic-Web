@@ -107,9 +107,9 @@ $result = mysqli_query($conn, $sql);
 
 <script>
     var swiper = new Swiper('.swiper-container', {
-        loop: false,
+        loop: true,
         slidesPerView: 1, // Show one image at a time
-        spaceBetween: 20, // Space between images
+        spaceBetween: 60, // Space between images
         
         navigation: {
             nextEl: '.swiper-button-next',
