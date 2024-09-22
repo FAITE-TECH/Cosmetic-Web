@@ -250,8 +250,8 @@ $result = mysqli_query($conn, $sql);
     <a href="https://www.instagram.com/sulosowshadham?igsh=YzljYTk1ODg3Zg==" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram"></i>
     </a>
-    <a href="#" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube"></i>
+    <a href="https://wa.me/message/WVFLY3HNQOMCB1" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
     </a>
 </div>
     </div>
