@@ -230,7 +230,7 @@ nav ul li a:active {
 }
 
 .section-title {
-    margin-bottom: 30px;
+    margin: 30px 0;
     color: #84c32f;
     font-size: 2em;
 }
@@ -616,18 +616,13 @@ footer {
         margin: 5px 0;
     }
 
-    /* Additional mobile-specific styles */
-    body {
-        padding: 0 15px; /* Ensure content is spaced within mobile viewports */
-    }
+    
 
     .container {
         width: 100%; /* Ensure containers take full width on mobile */
     }
 
-    .content {
-        padding: 10px; /* Reduce padding for content */
-    }
+    
 }
 
 
@@ -658,6 +653,7 @@ footer {
     .product-grid {
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
     }
 
     .product-card {
@@ -667,6 +663,10 @@ footer {
     .card{
         margin: 10px auto;
         max-width: 90%;
+        
+    }
+    .section-title {
+        padding: 15px 20px; /* Add vertical padding */
     }
 }
 
@@ -696,7 +696,10 @@ footer {
 
     .section-title {
         font-size: 1.5em;
+        padding: 10px 15px; /* Add vertical padding */
+        
     }
+    
 
     .featured-text h2 {
         font-size: 1.8em;
@@ -969,6 +972,52 @@ footer {
 }
 
 
+/* Responsive for Tablets (768px and below) */
+@media (max-width: 768px) {
+    .featured-content {
+        flex-direction: column; /* Stack content vertically */
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .featured-content .container {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .featured-image {
+        max-height: 300px; /* Reduce image height */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        bottom: 10px; /* Adjust position for smaller screens */
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Responsive for Mobile (480px and below) */
+@media (max-width: 480px) {
+    .featured-content {
+        padding: 10px 0;
+        gap: 5px; /* Reduce gap for smaller screens */
+    }
+
+    .featured-image {
+        max-height: 200px; /* Further reduce image height */
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        bottom: 5px;
+        width: 30px;
+        height: 30px; /* Smaller buttons */
+    }
+
+    .featured-content .container .swiper-container {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+}
 .pagination {
     text-align: center;
     margin-top: 20px;
