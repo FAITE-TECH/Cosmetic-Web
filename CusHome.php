@@ -4,7 +4,7 @@ session_start();
 $isLoggedIn = isset($_SESSION['Usname']);
 $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 
-$products_per_page = 4;
+$products_per_page = 3;
 $page_number = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page_number - 1) * $products_per_page;
 
@@ -34,13 +34,14 @@ $result = mysqli_query($conn, $sql);
     <title>Beauty Skin Care</title>
     <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
-<body>
+<body >
     <header>
-        <div class="container header-container">
+        <div class="header-container">
             <div class="logo">
                 <img src="Logo/logo.png">
             </div>
@@ -66,8 +67,8 @@ $result = mysqli_query($conn, $sql);
         </div>
     </header>
 
-    <section class="main-banner">
-        <div class="container banner-container">
+    <section class="main-banner " style="background-color:#255269 ">
+        <div class="banner-container" style="padding: 30px;">
             <div class="banner-content">
                 <h2>Care For Your Skin, Care For Your Beauty</h2>
                 <p>Sulosowshadham is a distinguished brand in the cosmetic industry, renowned for its commitment to natural beauty and sustainable practices. With a philosophy centered around harnessing the power of nature, Sulosowshadham offers a wide range of products that cater to diverse skin types and beauty needs. </p>
@@ -80,10 +81,10 @@ $result = mysqli_query($conn, $sql);
     </section>
 
    
-<section class="featured-content">
+<section class="featured-content"  style="background-color:#255269">
     <div class="container">
         <div class="swiper-container">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" style="align-items: center;">
                 <?php
                 if (mysqli_num_rows($result_featured) > 0) {
                     while ($row_featured = mysqli_fetch_assoc($result_featured)) {
@@ -100,7 +101,7 @@ $result = mysqli_query($conn, $sql);
             </div>
 
             <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" style="align-items: center;"></div>
 
             <!-- Add Navigation -->
             
@@ -129,8 +130,8 @@ $result = mysqli_query($conn, $sql);
 
 
     
-    <section class="featured-products">
-    <div class="container">
+    <section class="featured-products" style="padding: 30px;">
+    <div class="">
     <div class="heading-container">
             <h2>Experience the Power of Rabbit Oil for Healthy Hair Growth</h2>
             <p>Our Rabbit Oil is formulated with 100% natural ingredients, promoting hair growth and preventing hair fall. Discover the secret to luscious, healthy hair today.</p>
@@ -157,45 +158,48 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
     <section class="products-footer">
-            <h3>Our Products</h3>
-            <p>Discover our range of high-quality herbal cosmetic products.</p>
-            <a href="CustomerClenser.php" class="view-all">View all</a>
-            <!-- Swiper -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                <?php
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="card">';
-                        echo '<img src="uploads/' . htmlspecialchars($row['image']) . '" alt="Product">';
-                        echo '<h3>' . htmlspecialchars($row['Clenser_name']) . '</h3>';
-                        echo '<p>' . htmlspecialchars($row['Clenser_price']) . '</p>';
-                        echo '<a href="productDetail.php?id=' . $row['Cl_ID'] . '" class="btn-buy-now">Buy Now</a>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo '<p>No products found.</p>';
+    <div class="">
+        <h3>Our Products</h3>
+        <p>Discover our range of high-quality herbal cosmetic products.</p>
+        <a href="CustomerClenser.php" class="view-all">View all</a>
+        
+        <div class="row" style="padding-top:20px ;">
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="col-12 col-md-4 mb-3">'; // Column for mobile and desktop
+                    echo '<div class="card">'; // Card for styling
+                    echo '<img src="uploads/' . htmlspecialchars($row['image']) . '" alt="Product" class="card-img-top">';
+                    echo '<div class="card-body">';
+                    echo '<h3 class="card-title">' . htmlspecialchars($row['Clenser_name']) . '</h3>';
+                    echo '<p class="card-text">' . htmlspecialchars($row['Clenser_price']) . '</p>';
+                    echo '<a href="productDetail.php?id=' . $row['Cl_ID'] . '" class="btn btn-primary">Buy Now</a>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
                 }
-                ?>
-               
-                </div>
-                
-            </div>
-            <div class="pagination">
-                <?php if ($page_number > 1): ?>
-                    <a href="?page=<?php echo $page_number - 1; ?>" class="btn">Previous</a>
-                <?php endif; ?>
+            } else {
+                echo '<p>No products found.</p>';
+            }
+            ?>
+        </div>
+        
+        <div class="pagination">
+            <?php if ($page_number > 1): ?>
+                <a href="?page=<?php echo $page_number - 1; ?>" class="btn">Previous</a>
+            <?php endif; ?>
 
-                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                    <a href="?page=<?php echo $i; ?>" class="btn <?php if ($i == $page_number) echo 'active'; ?>"><?php echo $i; ?></a>
-                <?php endfor; ?>
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <a href="?page=<?php echo $i; ?>" class="btn <?php if ($i == $page_number) echo 'active'; ?>"><?php echo $i; ?></a>
+            <?php endfor; ?>
 
-                <?php if ($page_number < $total_pages): ?>
-                    <a href="?page=<?php echo $page_number + 1; ?>" class="btn">Next</a>
-                <?php endif; ?>
-            </div>
-        </section>
+            <?php if ($page_number < $total_pages): ?>
+                <a href="?page=<?php echo $page_number + 1; ?>" class="btn">Next</a>
+            <?php endif; ?>
+        </div>
+    </div>
 </section>
+
 
 <section class="exclusive-offers">
     <div class="container">
