@@ -324,7 +324,7 @@ th {
         </table>
         <div class="cart-actions">
             <button class="btn clear-cart">Clear Cart</button>
-            <button class="btn buy-cart">Buy</button>
+            <button href="buyNow.php" class="btn buy-cart">Buy</button>
         </div>
     </div>
 
