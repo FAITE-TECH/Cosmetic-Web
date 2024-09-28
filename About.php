@@ -51,7 +51,9 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                 </ul>
                 
                 <!-- Buttons for login/logout or cart on the right -->
-                <div class="header-buttons">
+                
+            </div>
+            <div class="header-buttons">
                     <?php if ($isLoggedIn): ?>
                         <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
                         <a href="cart.php" class="btn">Cart</a>
@@ -60,7 +62,6 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
                         <a href="Signin.php" class="btn">Log In</a>
                     <?php endif; ?>
                 </div>
-            </div>
         </nav>
     </div>
 </header>
