@@ -1,27 +1,30 @@
 <?php
 session_start();
 $isLoggedIn = isset($_SESSION['Usname']);
-$username = $isLoggedIn ? $_SESSION['Usname'] : '';
-$userId = $isLoggedIn ? $_SESSION['customerID'] : null;
-$productId = isset($_GET['id']) ? $_GET['id'] : '';
+if (!$isLoggedIn || !isset($_SESSION['customerID'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$userId = $_SESSION['customerID'];
 
 // Include database connection
 include 'connect.php';
 
-// Initialize product name
-$productName = '';
+// Fetch cart items for the user
+$sql = "SELECT * FROM cart WHERE user_id = ?";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, 'i', $userId);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
 
-if ($productId) {
-    // Fetch product name from database
-    $sql = "SELECT Clenser_name FROM clenser WHERE Cl_ID = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, 'i', $productId);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $productName);
-    mysqli_stmt_fetch($stmt);
-    mysqli_stmt_close($stmt);
+$cartItems = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $cartItems[] = $row;
+    }
 }
-
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
 
@@ -30,6 +33,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -41,30 +45,38 @@ mysqli_close($conn);
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-    <title>Buy Now</title>
     
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <!-- Include any additional CSS or libraries here -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('0dC8U10tkq7mtNRcK'); // Your EmailJS User ID
+        })();
+        
+        function sendEmail(form) {
+            emailjs.sendForm('service_x71pvhm', 'template_ezbd3us', form)
+                .then(function(response) {
+                    // Redirect to thank_you.php on success
+                    window.location.href = 'thank_you.php';
+                }, function(error) {
+                    alert('Failed to send message: ' + error.text);
+                });
         }
-
+    </script>
+    <style>
+        /* Add your styles here or keep using styles.css */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #255269;
             color: #333;
             line-height: 1.6;
         }
-
-        header {
-            background: #333;
+        header, footer {
+            background: #002147;
             color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
-
         main {
             max-width: 800px;
             margin: 2rem auto;
@@ -73,62 +85,59 @@ mysqli_close($conn);
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        h1 {
-            margin-bottom: 1.5rem;
-            font-size: 24px;
+        h1, h2 {
             text-align: center;
             color: #333;
         }
-
-        form {
-            display: flex;
-            flex-direction: column;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
         }
-
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
         label {
-            margin-bottom: 0.5rem;
+            display: block;
+            margin-top: 1rem;
             font-weight: bold;
         }
-
-        input[type="text"] {
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
             padding: 0.8rem;
-            margin-bottom: 1rem;
+            margin-top: 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
         }
-
-        input[type="text"]:focus {
-            border-color: #007BFF;
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
-        }
-
         button {
-            padding: 0.8rem;
-            background: #007BFF;
+            padding: 0.8rem 1.5rem;
+            background: #28a745;
             border: none;
             border-radius: 4px;
             color: #fff;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 1.5rem;
             transition: background 0.3s ease;
         }
-
         button:hover {
-            background: #0056b3;
+            background: #218838;
         }
-
-        footer {
-            background: #333;
-            color: #fff;
+        .empty-cart {
             text-align: center;
-            padding: 1rem 0;
             margin-top: 2rem;
         }
+        .empty-cart a {
+            text-decoration: none;
+            color: #007bff;
+        }
     </style>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
@@ -160,11 +169,10 @@ mysqli_close($conn);
                 </ul>
                 
                 <!-- Buttons for login/logout or cart on the right -->
-                
+               
             </div>
             <div class="header-buttons">
                     <?php if ($isLoggedIn): ?>
-                        <a href="cart.php" class="btn">Cart</a>
                         <a href="logout.php" class="btn">Log Out</a>
                     <?php else: ?>
                         <a href="Signin.php" class="btn">Log In</a>
@@ -175,45 +183,68 @@ mysqli_close($conn);
 </header>
     <main>
         <h1>Purchase Form</h1>
-        <form id="purchase-form">
-            <label for="productname">Product Name:</label>
-            <input type="text" id="product_name" name="product_name" value="<?php echo htmlspecialchars($productName); ?>">
+        <?php if (empty($cartItems)): ?>
+            <div class="empty-cart">
+                <p>Your cart is empty.</p>
+                <a href="Product.php" class="btn">Go to Products</a>
+            </div>
+        <?php else: ?>
+            <form id="purchase-form" onsubmit="event.preventDefault(); sendEmail(this);">
+                <h2>Order Details</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Size</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $cart_summary = "";
+                        $total_amount = 0;
+                        foreach ($cartItems as $item):
+                            $item_total = $item['price'] * $item['quantity'];
+                            $total_amount += $item_total;
+                            $cart_summary .= "{$item['p_name']} (Size: {$item['size']}) - {$item['quantity']} x {$item['price']} = {$item_total}\n";
+                        ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($item['p_name']); ?></td>
+                                <td><?php echo htmlspecialchars($item['price']); ?></td>
+                                <td><?php echo htmlspecialchars($item['size']); ?></td>
+                                <td><?php echo htmlspecialchars($item['quantity']); ?></td>
+                                <td><?php echo htmlspecialchars($item_total); ?></td>
+                            </tr>
+                            <!-- Hidden inputs to pass cart items -->
+                            <input type="hidden" name="product_ids[]" value="<?php echo htmlspecialchars($item['product_id']); ?>">
+                            <input type="hidden" name="product_names[]" value="<?php echo htmlspecialchars($item['p_name']); ?>">
+                            <input type="hidden" name="product_prices[]" value="<?php echo htmlspecialchars($item['price']); ?>">
+                            <input type="hidden" name="product_sizes[]" value="<?php echo htmlspecialchars($item['size']); ?>">
+                            <input type="hidden" name="product_quantities[]" value="<?php echo htmlspecialchars($item['quantity']); ?>">
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <input type="hidden" name="cart_summary" value="<?php echo htmlspecialchars($cart_summary); ?>">
+                <input type="hidden" name="total_amount" value="<?php echo htmlspecialchars($total_amount); ?>">
 
-            <label for="name">Quantity:</label>
-            <input type="text" id="quantity" name="quantity" required><br>
-            
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
-            
-            <label for="mobile">Mobile Number:</label>
-            <input type="text" id="mobile" name="mobile" required><br>
-            
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required><br>
+                <h2>Your Details</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-            
-            
-            <button type="submit">Submit</button>
-        </form>
+                <label for="mobile">Mobile Number:</label>
+                <input type="text" id="mobile" name="mobile" required>
 
-        <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script>
-            (function() {
-                emailjs.init('0dC8U10tkq7mtNRcK');
-            })();
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-            document.getElementById('purchase-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
 
-    emailjs.sendForm('service_x71pvhm', 'template_b0qx4am', this)
-        .then(function(response) {
-            // Redirect to thank_you.php on success
-            window.location.href = 'thank_you.php';
-        }, function(error) {
-            alert('Failed to send message: ' + error.text);
-        });
-});
-        </script>
+                <button type="submit">Submit Order</button>
+            </form>
+        <?php endif; ?>
     </main>
 
     <footer>

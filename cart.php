@@ -359,7 +359,8 @@ th {
         </table>
         <div class="cart-actions">
             <button class="btn clear-cart">Clear Cart</button>
-            <button href="buyNow.php" class="btn buy-cart">Buy</button>
+            <a href="cartBuyNow.php" class="btn buy-cart">Buy Now</a>
+  
         </div>
     </div>
 
