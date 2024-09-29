@@ -12,6 +12,15 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
     <title>Product Detail</title>
     <link rel="icon" href="Logo/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Include Bootstrap's JavaScript and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <style>
         .product-container {
             display: flex;
@@ -102,23 +111,45 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container header-container">
+<body style="background-color: #255269;">
+<header>
+    <div class="header-container">
+        <div class="d-flex justify-content-center align-items-center w-100">
+            <!-- Logo -->
             <div class="logo">
-                <img src="Logo/logo.png">
+                <img src="Logo/logo.png" alt="Logo">
             </div>
-            <nav>
-                <ul>
-                    <li><a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>">Home</a></li>
-                    <li><a href="Product.php">Products</a></li>
-                    <li><a href="About.php">About</a></li>
-                    <li><a href="contactus.php">Contact</a></li>
-                </ul>
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Inline SVG with green stroke -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 30 30">
+                        <path stroke="green" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>" class="nav-link" style="color: white;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Product.php" class="nav-link" style="color: white;">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="About.php" class="nav-link" style="color: white;">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contactus.php" class="nav-link" style="color: white;">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
+
+            <!-- Buttons -->
             <div class="header-buttons">
                 <?php if ($isLoggedIn): ?>
-                    Welcome, <?php echo htmlspecialchars($username); ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
                     <a href="cart.php" class="btn">Cart</a>
                     <a href="logout.php" class="btn">Log Out</a>
                 <?php else: ?>
@@ -126,7 +157,8 @@ $userId = $isLoggedIn ? $_SESSION['customerID'] : null;
                 <?php endif; ?>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <div class="container product-container">
         <?php

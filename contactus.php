@@ -342,45 +342,49 @@ $username = $isLoggedIn ? $_SESSION['Usname'] : '';
 <body>
 <header>
     <div class="header-container">
-        <div class="logo">
-            <img src="Logo/logo.png" alt="Logo">
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <!-- Hamburger icon for mobile view -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Navigation links that will be collapsed into the dropdown -->
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav mr-auto"> <!-- Change to mr-auto for left alignment -->
-                    <li class="nav-item">
-                        <a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>" class="nav-link" style="color: white;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="Product.php" class="nav-link" style="color: white;">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="About.php" class="nav-link" style="color: white;">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contactus.php" class="nav-link" style="color: white;">Contact</a>
-                    </li>
-                </ul>
-                
-                <!-- Buttons for login/logout or cart on the right -->
-                
+        <div class="d-flex justify-content-center align-items-center w-100">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="Logo/logo.png" alt="Logo">
             </div>
-            <div class="header-buttons">
-                    <?php if ($isLoggedIn): ?>
-                        <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
-                        <a href="cart.php" class="btn">Cart</a>
-                        <a href="logout.php" class="btn">Log Out</a>
-                    <?php else: ?>
-                        <a href="Signin.php" class="btn">Log In</a>
-                    <?php endif; ?>
+
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- Inline SVG with green stroke -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 30 30">
+                        <path stroke="green" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="<?php echo $isLoggedIn ? 'CusHome.php' : 'index.php'; ?>" class="nav-link" style="color: white;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Product.php" class="nav-link" style="color: white;">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="About.php" class="nav-link" style="color: white;">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contactus.php" class="nav-link" style="color: white;">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-        </nav>
+            </nav>
+
+            <!-- Buttons -->
+            <div class="header-buttons">
+                <?php if ($isLoggedIn): ?>
+                    <span class="welcome-message">Welcome, <?php echo htmlspecialchars($username); ?></span>
+                    <a href="cart.php" class="btn">Cart</a>
+                    <a href="logout.php" class="btn">Log Out</a>
+                <?php else: ?>
+                    <a href="Signin.php" class="btn">Log In</a>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 </header>
 
