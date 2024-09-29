@@ -190,7 +190,7 @@ $result = mysqli_query($conn, $sql);
     <div class="">
         <h3>Our Products</h3>
         <p>Discover our range of high-quality herbal cosmetic products.</p>
-        <a href="CustomerClenser.php" class="view-all">View all</a>
+        <a href="Product.php" class="view-all">View all</a>
         
         <div class="row" style="padding-top:20px ;">
             <?php

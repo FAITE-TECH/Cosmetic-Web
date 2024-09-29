@@ -172,7 +172,7 @@ $result = mysqli_query($conn, $sql);
                 <img src="uploads/bg5.jpg" alt="Product 1">
                 <h3>Nourish Your Hair with Rabbit Oil for Visible Results</h3>
                 <p>Our Rabbit Oil is carefully crafted to provide deep nourishment, resulting in stronger, shinier hair.</p>
-                <a href="CustomerClenser.php" class="link">Shop now</a>
+                <a href="Product.php" class="link">Shop now</a>
             </div>
             <div class="product-card">
                 <img src="uploads/bg5.jpg" alt="Product 2">
